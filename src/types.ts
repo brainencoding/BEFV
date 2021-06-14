@@ -13,6 +13,12 @@ export interface BEFormValidatorCreateImpl {
 	init(): void;
 }
 
+export interface InputMessageImpl {
+	remove(): void;
+	append(): void;
+	changeStatus(status: boolean): void;
+}
+
 type TUtils = {
 		errorConstructor: (beFormValidator: string) => (text: string) => Error;
 		toBoolean: (num: Number | String | Boolean) => Boolean | Number;

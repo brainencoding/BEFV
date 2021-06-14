@@ -23,3 +23,6 @@ constants.DEFAUTL_VALUES = {
 constants.DATASET = {
 	VALID: "data-be-valid"
 }
+
+constants.ERROR_MESSAGE_CLASS_NAME = 'be-error-message';
+constants.SUCCESS_MESSAGE_CLASS_NAME = 'be-success-message';
