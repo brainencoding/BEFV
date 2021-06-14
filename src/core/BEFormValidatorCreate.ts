@@ -57,7 +57,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 		}
 	}
-
+	                             
 	public init(): void {
 		try {
 			this.validatorOptionsChecker();
@@ -76,7 +76,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 
 			if (this.inputs.length) {
-				this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), {  });
+				this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
 			} else {
 				Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject');
 				return;
