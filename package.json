@@ -1,0 +1,30 @@
+{
+  "name": "be-form-validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/BEFormValidator.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainencoding/BE-form-validator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brainencoding/BE-form-validator/issues"
+  },
+  "homepage": "https://github.com/brainencoding/BE-form-validator#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.7.2"
+  }
+}
