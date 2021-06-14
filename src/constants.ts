@@ -14,7 +14,6 @@ constants.DEFAUTL_VALUES = {
 		element: undefined,
 		options: {
 			default: false,
-			validateWhenSubmit: false,
 		},
 		subscriptions: {},
 		handlers: {},

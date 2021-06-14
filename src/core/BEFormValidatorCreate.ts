@@ -1,9 +1,9 @@
-import {AValidateForm, AValidateInput, TInputElement} from "../types";
-import {Exception} from "./Exception";
+import {AValidateForm, AValidateInput, BEFormValidatorCreateImpl} from "../types";
+import {Exception} from "./components/Exception";
 import {ValidateElement} from "./ValidateElement";
 import {constants} from "../constants";
 
-export class BEFormValidatorCreate {
+export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	private readonly __initialInputs: AValidateInput[];
 	private inputs: ValidateElement[] = [];
 	public form: AValidateForm = constants.DEFAUTL_VALUES.VALIDATOR;
@@ -12,7 +12,7 @@ export class BEFormValidatorCreate {
 
 	constructor(form: AValidateForm, validateElements: AValidateInput[]) {
 		this.__initialInputs = validateElements;
-		this.form = form;
+		this.form = Object.assign(this.form, form);
 	}
 
 	private formSubmitHandler(e: Event): void {
@@ -78,7 +78,7 @@ export class BEFormValidatorCreate {
 			if (this.inputs.length) {
 				this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), {  });
 			} else {
-				Exception.throw('All of inputs is incorrect for creating a validateElement! Please check your field in validateElementObject');
+				Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject');
 				return;
 			}
 		} catch (error) {

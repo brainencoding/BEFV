@@ -6,7 +6,12 @@ declare global {
 	}
 }
 
-export interface BEFormValidatorCreate {}
+export interface BEFormValidatorCreateImpl {
+	form: AValidateForm;
+	isFormValid: boolean;
+	
+	init(): void;
+}
 
 type TUtils = {
 		errorConstructor: (beFormValidator: string) => (text: string) => Error;
@@ -16,7 +21,7 @@ type TUtils = {
 export type TBEFormValidator = {
 	__constants: Record<string, string | number>;
 	__utils: TUtils;
-	Create: BEFormValidatorCreate;
+	Create: BEFormValidatorCreateImpl;
 }
 
 export type TInputElement = HTMLInputElement | HTMLTextAreaElement;

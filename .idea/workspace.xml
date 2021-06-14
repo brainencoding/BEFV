@@ -23,19 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/Exception.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/components/InputMessage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BEFormValidator.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFormValidator.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Exception.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/Exception.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +56,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core\components" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core" />
     </key>
   </component>
@@ -73,8 +71,58 @@
       <workItem from="1623444895627" duration="3331000" />
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
-      <workItem from="1623608874466" duration="17244000" />
+      <workItem from="1623608874466" duration="18659000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: init project">
+      <created>1623700084511</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700084511</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: settings webpack">
+      <created>1623700097313</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700097313</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: set mock types">
+      <created>1623700118157</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700118157</updated>
+    </task>
+    <task id="LOCAL-00004" summary="upd: create class for custom Exception">
+      <created>1623700139197</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700139197</updated>
+    </task>
+    <task id="LOCAL-00005" summary="upd: obj with constants">
+      <created>1623700156162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700156162</updated>
+    </task>
+    <task id="LOCAL-00006" summary="upd: Create and wrote Factory Validator">
+      <created>1623700222558</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700222558</updated>
+    </task>
+    <task id="LOCAL-00007" summary="upd: utils">
+      <created>1623700233564</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623700233564</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,15 +140,25 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: init project" />
+    <MESSAGE value="chore: settings webpack" />
+    <MESSAGE value="chore: set mock types" />
+    <MESSAGE value="upd: create class for custom Exception" />
+    <MESSAGE value="upd: obj with constants" />
+    <MESSAGE value="upd: Create and wrote Factory Validator" />
+    <MESSAGE value="upd: utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: utils" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623668927042">
+    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623701156357">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623668927042" />
+    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623701156357" />
     <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623678996759">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -109,9 +167,9 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623669638321" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623664568436">
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623700487517">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623664568436" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623700487517" />
   </component>
 </project>

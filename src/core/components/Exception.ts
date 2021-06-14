@@ -1,4 +1,4 @@
-import {BEFormValidator} from "../index";
+import {BEFormValidator} from "../../index";
 
 export class Exception{
 	static throw(s: string, _class: string = 'BEFormValidator') {
