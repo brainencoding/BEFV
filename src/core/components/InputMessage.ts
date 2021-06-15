@@ -40,8 +40,14 @@ export class InputMessage implements InputMessageImpl {
 	}
 
 	public changeStatus(status: boolean, text: string = this.text): void {
+		const classNameConditionStatus = !status ? constants.ERROR_MESSAGE_CLASS_NAME : constants.SUCCESS_MESSAGE_CLASS_NAME;
+
 		this.messageHTML.className = '';
-		this.messageHTML.classList.add(!status ? constants.ERROR_MESSAGE_CLASS_NAME : constants.SUCCESS_MESSAGE_CLASS_NAME);
+		this.messageHTML.classList.add(classNameConditionStatus);
+
+		if (this.opt.hasOwnProperty('border') && this.opt.border) {
+			this.input.classList.add(classNameConditionStatus + '-input');
+		}
 
 		this.messageHTML.innerText = text;
 	}
