@@ -1,6 +1,7 @@
 import {AValidateForm, AValidateInput, TInputElement, TInputValidate} from "../types";
 import {Exception} from "./components/Exception";
 import {InputMessage} from "./components/InputMessage";
+import {constants} from "../constants";
 
 export class ValidateElement {
 	public isValid: boolean = false;
@@ -8,12 +9,8 @@ export class ValidateElement {
 
 	public messages: InputMessage;
 
-	private static __defaultOpt = {
-		onlyOnSubmit: false,
-		rules: {},
-	}
-
-	constructor(public opt: AValidateInput = ValidateElement.__defaultOpt, public validator: AValidateForm) {
+	constructor(public opt: AValidateInput, public validator: AValidateForm) {
+		this.opt = Object.assign(this.opt, constants.DEFAUTL_VALUES.VALIDATION_ELEMENT);
 	}
 
 	public validate(): void {
@@ -42,7 +39,10 @@ export class ValidateElement {
 				this.messages.append();
 			}
 
-			if (!valCond) return;
+			if (!valCond) {
+				this.opt.subscriptions.invalid();
+				return;
+			}
 		}
 
 		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
@@ -83,14 +83,20 @@ export class ValidateElement {
 				this.messages.changeStatus(res, message.rule['error']);
 			}
 
-			if (!res) return;
+			if (!res) {
+				this.opt.subscriptions.invalid();
+				return;
+			}
 		}
+
+		this.opt.subscriptions.valid(this);
 
 		this.isValid = true;
 	}
 
-	private elementHandler(): void {
-
+	private elementHandler(e: Event): void {
+		this.opt.handlers.input(e);
+		this.validate();
 	}
 
 	public init(): void {

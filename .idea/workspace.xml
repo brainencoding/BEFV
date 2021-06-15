@@ -32,8 +32,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/InputMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/InputMessage.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1623444895627" duration="3331000" />
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
-      <workItem from="1623608874466" duration="40291000" />
+      <workItem from="1623608874466" duration="40983000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -179,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623796864645</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feet: ADD SUPPROTING input bordering">
+      <created>1623797233492</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1623797233492</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feet: ADD SUPPROTING input bordering _2">
+      <created>1623797246929</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623797246929</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +239,9 @@
     <MESSAGE value="upd: apply reinit Creator when update configuration" />
     <MESSAGE value="upd: minify condition for change status in input message" />
     <MESSAGE value="feet: ADD SUPPROTING CUSTORM RULE" />
-    <option name="LAST_COMMIT_MESSAGE" value="feet: ADD SUPPROTING CUSTORM RULE" />
+    <MESSAGE value="feet: ADD SUPPROTING input bordering" />
+    <MESSAGE value="feet: ADD SUPPROTING input bordering _2" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: ADD SUPPROTING input bordering _2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">

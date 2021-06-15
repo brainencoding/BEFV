@@ -85,6 +85,14 @@ const validationItems = [
                 success: 'Поле required success',
             },
             border: true,
+        },
+        subscriptions: {
+            valid(validatorElement) {
+                console.log('input is valid')
+            },
+            invalid(validatorElement) {
+                console.log('input is invalid')
+            }
         }
     },
     {

@@ -18,6 +18,16 @@ constants.DEFAUTL_VALUES = {
 		subscriptions: {},
 		handlers: {},
 	},
+	VALIDATION_ELEMENT: {
+		onlyOnSubmit: false,
+		subscriptions: {
+			valid: () => {},
+			invalid: () => {}
+		},
+		handlers: {
+			input: () => {}
+		}
+	}
 }
 
 constants.DATASET = {
