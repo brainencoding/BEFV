@@ -25,49 +25,6 @@ const formConfig = {
     }
 }
 
-/**
-
- EXAMPLE
-
- {
-        element: file,
-        onlyOnSubmit: true
-        message: {
-            rule: {
-                error: '',
-                success: '',
-            },
-            required: {
-                error: '',
-                success: '',
-            }
-
-            location: document.querySelector('.yourLocation'),
-            noAdjacent: true,
-            border: true
-             }
-        rules: {
-            required: true,
-            // rule: /(.*)/g
-            // rule: function (value, validator) {
-             // this is current input validator
-            //}
-        },
-        handlers: {
-             input(e) {
-                 console.log('validate input event: ', e)
-             }
-        },
-        subscriptions: {
-            valid(validatorElement) {
-                console.log('input is valid')
-            },
-            invalid(validatorElement) {
-                console.log('input is invalid')
-            }
-        }
-    },
- * */
 
 const validationItems = [
     {
@@ -102,7 +59,7 @@ const validationItems = [
         },
         message: {
             rule: {
-                error: 'неверная херня'
+                error: 'неверная херня',
             }
         }
     },

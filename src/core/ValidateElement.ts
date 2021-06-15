@@ -23,7 +23,7 @@ export class ValidateElement {
 		const InputMessageOpts = {
 			location: message.location || undefined,
 			noAdjacent: message.noAdjacent || undefined,
-			border: message.border
+			border: message.border || false
 		}
 
 		if (!this.messages) {
@@ -75,13 +75,13 @@ export class ValidateElement {
 				}
 			}
 
-			if (message?.rule.hasOwnProperty('success')) {
-				this.messages.changeStatus(res, message.rule['success']);
-			}
+			this.messages.remove();
 
-			if (message?.rule.hasOwnProperty('error')) {
-				this.messages.changeStatus(res, message.rule['error']);
-			}
+			this.messages.changeStatus(res,
+				!res ? message.rule['error'] || '' : res ? message.rule['success'] || '' : ''
+			);
+
+			this.messages.append();
 
 			if (!res) {
 				this.opt.subscriptions.invalid();
