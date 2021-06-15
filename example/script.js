@@ -32,11 +32,18 @@ const formConfig = {
  {
         element: file,
         message: {
-                 error: '',
-                 success: '',
-                 location: document.querySelector('.yourLocation'),
-                 noAdjacent: true,
-                 border: true
+            rule: {
+                error: '',
+                success: '',
+            },
+            required: {
+                error: '',
+                success: '',
+            }
+
+            location: document.querySelector('.yourLocation'),
+            noAdjacent: true,
+            border: true
              }
         rules: {
             required: true,
@@ -65,38 +72,40 @@ const validationItems = [
             required: true,
         },
         message: {
-            error: 'Поле обязательно для заполнения',
-            success: 'Поле заполнено',
+            rule: {
+                error: 'Поле обязательно для заполнения',
+                success: 'Поле заполнено',
+            },
             required: {
-                error: 'Поле reuired error',
-                success: 'Поле reuired success',
+                error: 'Поле required error',
+                success: 'Поле required success',
             }
         }
     },
-    {
-        element: phone,
-        rules: {},
-        message: {
-            error: '',
-            success: ''
-        }
-    },
-    {
-        element: email,
-        rules: {},
-        message: {
-            error: '',
-            success: ''
-        }
-    },
-    {
-        element: file,
-        rules: {},
-        message: {
-            error: '',
-            success: ''
-        }
-    },
+    // {
+    //     element: phone,
+    //     rules: {},
+    //     message: {
+    //         error: '',
+    //         success: ''
+    //     }
+    // },
+    // {
+    //     element: email,
+    //     rules: {},
+    //     message: {
+    //         error: '',
+    //         success: ''
+    //     }
+    // },
+    // {
+    //     element: file,
+    //     rules: {},
+    //     message: {
+    //         error: '',
+    //         success: ''
+    //     }
+    // },
 ];
 
 const formValidator = new BEFormValidator.Create(formConfig, validationItems);

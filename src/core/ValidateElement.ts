@@ -8,7 +8,8 @@ export class ValidateElement {
 
 	public messages: Record<any, any> = {};
 
-	constructor(public opt: AValidateInput, public validator: AValidateForm) {}
+	constructor(public opt: AValidateInput, public validator: AValidateForm) {
+	}
 
 	public validate(): void {
 		this.isValid = false;
@@ -32,25 +33,14 @@ export class ValidateElement {
 				}
 
 				this.messages.required.remove();
-				this.messages.required.changeStatus(valCond,
-					valCond ? (
-						message?.required?.success ?
-							message?.required?.success :
-							message.success ?
-								message.success :
-								''
-					) : (
-						message?.required?.error ?
-							message?.required?.error:
-							message.error ?
-								message.error :
-								''
-					));
+				this.messages.required.changeStatus(valCond, message?.required[valCond ? 'success' : 'error'] || '');
 				this.messages.required.append();
 			}
 
 			if (!valCond) return;
 		}
+
+
 
 		this.isValid = true;
 	}
@@ -60,7 +50,7 @@ export class ValidateElement {
 		*  TODO: this.opt.border если указан то добавлять инпуту калсс ерора или саксес
 		* */
 	}
-	                                     
+
 	public init(): void {
 		this.isInit = true;
 
