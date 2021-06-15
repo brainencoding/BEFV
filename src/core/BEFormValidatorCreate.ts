@@ -65,10 +65,11 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	}
 
 	public init(): void {
-		if (this.__isInit) return;
+		if (this.__isInit) {
+			this.inputs = [];
+		}
 
 		try {
-			this.__isInit = true;
 			this.validatorOptionsChecker();
 
 			this.form.element.setAttribute('data-be-valid', '0');
@@ -85,11 +86,15 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 
 			if (this.inputs.length) {
-				this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
+					if (!this.__isInit) {
+						this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
+					}
 			} else {
 				Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject');
 				return;
 			}
+
+			this.__isInit = true;
 		} catch (error) {
 			console.error(error);
 		}
