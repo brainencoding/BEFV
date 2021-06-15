@@ -11,6 +11,8 @@ export class ValidateElement {
 	constructor(public opt: AValidateInput, public validator: AValidateForm) {}
 
 	public validate(): void {
+		this.isValid = false;
+
 		const value = this.opt.element?.value;
 		const rules = this.opt.rules;
 		const message = this.opt.message;
@@ -22,34 +24,35 @@ export class ValidateElement {
 		}
 
 		if (rules.hasOwnProperty('required') && rules.required) {
-			if (!message) return;
-
-			if (!this.messages.hasOwnProperty('required')) {
-				this.messages.required = new InputMessage(' ', this.opt.element, InputMessageOpts);
-			}
-
 			const valCond = !!value;
 
-			this.messages.required.remove();
+			if (message) {
+				if (!this.messages.hasOwnProperty('required')) {
+					this.messages.required = new InputMessage(' ', this.opt.element, InputMessageOpts);
+				}
 
-			this.messages.required.changeStatus(valCond,
-				valCond ? (
-					message?.required?.success ?
-						message?.required?.success :
-						message.success ?
-							message.success :
-							''
-				) : (
-					message?.required?.error ?
-						message?.required?.error:
-						message.error ?
-							message.error :
-							''
-				));
+				this.messages.required.remove();
+				this.messages.required.changeStatus(valCond,
+					valCond ? (
+						message?.required?.success ?
+							message?.required?.success :
+							message.success ?
+								message.success :
+								''
+					) : (
+						message?.required?.error ?
+							message?.required?.error:
+							message.error ?
+								message.error :
+								''
+					));
+				this.messages.required.append();
+			}
 
-			this.messages.required.append();
+			if (!valCond) return;
 		}
 
+		this.isValid = true;
 	}
 
 	private elementHandler(): void {

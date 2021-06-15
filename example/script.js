@@ -8,7 +8,7 @@ const file = document.querySelector('.file');
 const formConfig = {
     element: form,
     options: {
-        default: true, // if form is not use ajax, | default = false
+        default: false, // if form is not use ajax, | default = false
     },
     handlers: {
         submit(event) {
@@ -63,10 +63,14 @@ const validationItems = [
         element: text,
         rules: {
             required: true,
-
         },
         message: {
             error: 'Поле обязательно для заполнения',
+            success: 'Поле заполнено',
+            required: {
+                error: 'Поле reuired error',
+                success: 'Поле reuired success',
+            }
         }
     },
     {
