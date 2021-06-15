@@ -26,6 +26,7 @@ export class ValidateElement {
 		const InputMessageOpts = {
 			location: message.location || undefined,
 			noAdjacent: message.noAdjacent || undefined,
+			border: message.border
 		}
 
 		if (!this.messages) {
@@ -89,9 +90,7 @@ export class ValidateElement {
 	}
 
 	private elementHandler(): void {
-		/*
-		*  TODO: this.opt.border если указан то добавлять инпуту калсс ерора или саксес из рула или если нет рула брать рекваред
-		* */
+
 	}
 
 	public init(): void {

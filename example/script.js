@@ -83,7 +83,8 @@ const validationItems = [
             required: {
                 error: 'Поле required error',
                 success: 'Поле required success',
-            }
+            },
+            border: true,
         }
     },
     {
