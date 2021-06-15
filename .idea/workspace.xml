@@ -32,7 +32,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +73,7 @@
       <workItem from="1623444895627" duration="3331000" />
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
-      <workItem from="1623608874466" duration="36764000" />
+      <workItem from="1623608874466" duration="39912000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -164,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623793395076</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="upd: minify condition for change status in input message">
+      <created>1623793712327</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1623793712327</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +217,8 @@
     <MESSAGE value="feet: ADD REQUIRED RULE TO VALIDATOR METHOD" />
     <MESSAGE value="upd: correct checking required" />
     <MESSAGE value="upd: apply reinit Creator when update configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: apply reinit Creator when update configuration" />
+    <MESSAGE value="upd: minify condition for change status in input message" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: minify condition for change status in input message" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">

@@ -6,9 +6,14 @@ export class ValidateElement {
 	public isValid: boolean = false;
 	public isInit: boolean = false;
 
-	public messages: Record<any, any> = {};
+	public messages: InputMessage;
 
-	constructor(public opt: AValidateInput, public validator: AValidateForm) {
+	private static __defaultOpt = {
+		onlyOnSubmit: false,
+		rules: {},
+	}
+
+	constructor(public opt: AValidateInput = ValidateElement.__defaultOpt, public validator: AValidateForm) {
 	}
 
 	public validate(): void {
@@ -21,42 +26,80 @@ export class ValidateElement {
 		const InputMessageOpts = {
 			location: message.location || undefined,
 			noAdjacent: message.noAdjacent || undefined,
-			success: (!message.error || !message.error.length) && message.success ? true : undefined
+		}
+
+		if (!this.messages) {
+			this.messages = new InputMessage(' ', this.opt.element, InputMessageOpts);
 		}
 
 		if (rules.hasOwnProperty('required') && rules.required) {
 			const valCond = !!value;
 
-			if (message) {
-				if (!this.messages.hasOwnProperty('required')) {
-					this.messages.required = new InputMessage(' ', this.opt.element, InputMessageOpts);
-				}
-
-				this.messages.required.remove();
-				this.messages.required.changeStatus(valCond, message?.required[valCond ? 'success' : 'error'] || '');
-				this.messages.required.append();
+			if (message && message.required) {
+				this.messages.remove();
+				this.messages.changeStatus(valCond, message?.required[valCond ? 'success' : 'error']);
+				this.messages.append();
 			}
 
 			if (!valCond) return;
 		}
 
+		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
+			const rule = rules.rule;
+			let res;
 
+			switch (rule.constructor) {
+				case RegExp: {
+					if (rule.test(value.toString())) {
+						res = true;
+						break;
+					}
+
+					res = false;
+					break;
+				}
+
+				case Function: {
+					if (rule.call(this, value, this.validator)) {
+						res = true;
+						break;
+					}
+
+					res = false;
+					break;
+				}
+
+				default: {
+					ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
+				}
+			}
+
+			if (message?.rule.hasOwnProperty('success')) {
+				this.messages.changeStatus(res, message.rule['success']);
+			}
+
+			if (message?.rule.hasOwnProperty('error')) {
+				this.messages.changeStatus(res, message.rule['error']);
+			}
+
+			if (!res) return;
+		}
 
 		this.isValid = true;
 	}
 
 	private elementHandler(): void {
 		/*
-		*  TODO: this.opt.border если указан то добавлять инпуту калсс ерора или саксес
+		*  TODO: this.opt.border если указан то добавлять инпуту калсс ерора или саксес из рула или если нет рула брать рекваред
 		* */
 	}
 
 	public init(): void {
-		this.isInit = true;
+		if (!this.isInit && !this.opt.onlyOnSubmit) {
+			this.opt.element.addEventListener('input', this.elementHandler.bind(this));
+		}
 
-		/*
-		* TODO: кидаем хенделеры для обработки при вводе
-		* */
+		this.isInit = true;
 	}
 
 	public isCorrect(): boolean {
@@ -73,8 +116,19 @@ export class ValidateElement {
 		return true
 	}
 
-	public destroy(idx: number): void {
-		ValidateElement.Error('object are destroyed for element [index => ' + idx + '], element is undefined!');
+	public destroy(idx?: number): void {
+		if (idx) {
+			ValidateElement.Error('object are destroyed for element [index => ' + idx + '], element is undefined!');
+		}
+
+		if (this.isInit) {
+			this.opt.element.removeEventListener('input', this.elementHandler.bind(this));
+
+			if (this.messages && this.messages.remove) {
+				this.messages.remove();
+				this.messages = undefined;
+			}
+		}
 	}
 
 	static Error(..._s: string[]): Exception {

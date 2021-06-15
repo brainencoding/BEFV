@@ -31,6 +31,7 @@ const formConfig = {
 
  {
         element: file,
+        onlyOnSubmit: true
         message: {
             rule: {
                 error: '',
@@ -47,6 +48,10 @@ const formConfig = {
              }
         rules: {
             required: true,
+            // rule: /(.*)/g
+            // rule: function (value, validator) {
+             // this is current input validator
+            //}
         },
         handlers: {
              input(e) {
@@ -62,7 +67,6 @@ const formConfig = {
             }
         }
     },
-
  * */
 
 const validationItems = [
@@ -82,22 +86,36 @@ const validationItems = [
             }
         }
     },
-    // {
-    //     element: phone,
-    //     rules: {},
-    //     message: {
-    //         error: '',
-    //         success: ''
-    //     }
-    // },
-    // {
-    //     element: email,
-    //     rules: {},
-    //     message: {
-    //         error: '',
-    //         success: ''
-    //     }
-    // },
+    {
+        element: phone,
+        rules: {
+            rule: /(\d)+/
+        },
+        message: {
+            rule: {
+                error: 'неверная херня'
+            }
+        }
+    },
+    {
+        element: email,
+        rules: {
+            required: true,
+            rule: function (value) {
+                return value === '12'
+            }
+        },
+        message: {
+            required: {
+                error: 'Поле required error',
+                success: 'Поле required success',
+            },
+            rule: {
+                error: '123123 Поле обязательно для заполнения',
+                success: '123123 Поле заполнено',
+            },
+        }
+    },
     // {
     //     element: file,
     //     rules: {},

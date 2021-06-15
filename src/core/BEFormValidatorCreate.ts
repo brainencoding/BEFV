@@ -66,7 +66,13 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
 	public init(): void {
 		if (this.__isInit) {
-			this.inputs = [];
+			if (this.inputs.length) {
+				for (const input of this.inputs) {
+					input.destroy();
+				}
+				
+				this.inputs = [];
+			}
 		}
 
 		try {

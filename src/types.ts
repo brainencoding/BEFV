@@ -38,15 +38,16 @@ export type TInputValidate = {
 }
 
 export abstract class AValidateInput {
-	element: TInputElement;
-	rules: Record<any, any>;
+	element?: TInputElement;
+	rules?: Record<any, any>;
 	handlers?: Record<string, Function>;
 	subscriptions?: Record<any, any>;
-	message: Record<any, any>
+	message?: Record<any, any>;
+	onlyOnSubmit?: Boolean;
 }
 
 export abstract class AValidateForm {
-	element: HTMLFormElement;
+	element?: HTMLFormElement;
 	options?: Record<string, any>;
 	subscriptions?: Record<any, any>;
 	handlers?: Record<any, any>;
