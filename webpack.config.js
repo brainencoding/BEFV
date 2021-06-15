@@ -6,7 +6,7 @@ const config = {
     mode: process.env.NODE_ENV,
 
     output: {
-        filename: 'BEFormValidator.min.js',
+        filename: 'BEFV.min.js',
         path: path.resolve(__dirname, 'lib')
     },
 

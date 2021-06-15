@@ -16,7 +16,7 @@ export interface BEFormValidatorCreateImpl {
 export interface InputMessageImpl {
 	remove(): void;
 	append(): void;
-	changeStatus(status: boolean): void;
+	changeStatus(status: boolean, text: string): void;
 }
 
 type TUtils = {
@@ -30,7 +30,7 @@ export type TBEFormValidator = {
 	Create: BEFormValidatorCreateImpl;
 }
 
-export type TInputElement = HTMLInputElement | HTMLTextAreaElement;
+export type TInputElement = HTMLInputElement;
 
 export type TInputValidate = {
 	input: TInputElement;
@@ -39,9 +39,10 @@ export type TInputValidate = {
 
 export abstract class AValidateInput {
 	element: TInputElement;
-	rules: Record<string, string>;
+	rules: Record<any, any>;
 	handlers?: Record<string, Function>;
 	subscriptions?: Record<any, any>;
+	message: Record<any, any>
 }
 
 export abstract class AValidateForm {

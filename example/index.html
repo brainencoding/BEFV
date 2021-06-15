@@ -8,19 +8,30 @@
 </head>
 <body>
 
+<style>
+    .block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block .be-error-message {
+        color: red;
+    }
+</style>
+
 <h1>Test Form Validator</h1>
 
 <form class="js-form-with-validator" action="">
-    <input class="text" type="text">
-    <input class="phone" type="phone">
-
-    <input class="file" type="file">
+    <div class="block"><input class="text" type="text"></div>
+    <div class="block"><input class="phone" type="text"></div>
+    <div class="block"><input class="email" type="text"></div>
+    <div class="block"><input class="file" type="file"></div>
 
     <button type="submit">submit</button>
 </form>
-
 <small>© by BrainEncoding</small>
 
-<script src="../lib/BEFormValidator.min.js"></script>
+<script src="../lib/BEFV.min.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>

@@ -19,20 +19,26 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/components/InputMessage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFormValidator.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFormValidator.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BEFormValidator.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Exception.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/Exception.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/components/InputMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/InputMessage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,7 @@
       <workItem from="1623444895627" duration="3331000" />
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
-      <workItem from="1623608874466" duration="18659000" />
+      <workItem from="1623608874466" duration="34192000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -122,7 +128,28 @@
       <option name="project" value="LOCAL" />
       <updated>1623700233564</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="upd: interface for BEFormValidator">
+      <created>1623701520121</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623701520121</updated>
+    </task>
+    <task id="LOCAL-00009" summary="upd: add bubling for form listener of BEFVCreate working firstly">
+      <created>1623708038041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623708038041</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feet: Add class for append/remove error/success message under input">
+      <created>1623708580919</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623708580919</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +160,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -148,28 +187,31 @@
     <MESSAGE value="upd: obj with constants" />
     <MESSAGE value="upd: Create and wrote Factory Validator" />
     <MESSAGE value="upd: utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: utils" />
+    <MESSAGE value="upd: interface for BEFormValidator" />
+    <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
+    <MESSAGE value="feet: Add class for append/remove error/success message under input" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: Add class for append/remove error/success message under input" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623701156357">
+    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623706574468">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623701156357" />
+    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
     <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623678996759">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="674" y="295" width="572" height="520" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623678996759" />
-    <state x="616" y="258" key="run.anything.popup" timestamp="1623669638321">
+    <state x="616" y="258" key="run.anything.popup" timestamp="1623706964381">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623669638321" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623700487517">
+    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623706964381" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623786646977">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623700487517" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623786646977" />
   </component>
 </project>

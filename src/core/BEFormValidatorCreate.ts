@@ -9,10 +9,15 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	public form: AValidateForm = constants.DEFAUTL_VALUES.VALIDATOR;
 
 	public isFormValid: boolean = false;
+	private __isInit: boolean = false;
 
 	constructor(form: AValidateForm, validateElements: AValidateInput[]) {
 		this.__initialInputs = validateElements;
 		this.form = Object.assign(this.form, form);
+
+		Object.defineProperty(this.form.element, '__BEFV', {
+			value: this
+		})
 	}
 
 	private formSubmitHandler(e: Event): void {
@@ -29,8 +34,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				input.validate();
 
 				if (!input.isValid) {
-					this.isFormValid = false;
-					break;
+					if (this.isFormValid) {
+						this.isFormValid = false;
+					}
 				}
 			}
 		}
@@ -57,9 +63,12 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 		}
 	}
-	                             
+
 	public init(): void {
+		if (this.__isInit) return;
+
 		try {
+			this.__isInit = true;
 			this.validatorOptionsChecker();
 
 			this.form.element.setAttribute('data-be-valid', '0');
