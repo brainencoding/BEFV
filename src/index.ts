@@ -2,6 +2,7 @@ import {TBEFormValidator} from "./types";
 import {BEFormValidatorCreate} from "./core/BEFormValidatorCreate";
 import {constants} from "./constants";
 import {utils} from "./utils";
+import {DefaultRules} from "./core/DefaultRules";
 
 export let BEFormValidator: TBEFormValidator = Object.create({});
 
@@ -13,6 +14,10 @@ class BEFormValidatorModule {
 
 		Object.defineProperty(BEFormValidator, '__utils', {
 			value: utils
+		});
+		
+		Object.defineProperty(BEFormValidator, 'DefaultRules', {
+			value: DefaultRules
 		});
 
 		Object.defineProperty(BEFormValidator, 'Create', {

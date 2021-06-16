@@ -55,9 +55,7 @@ const validationItems = [
     {
         element: phone,
         rules: {
-            rule: [/(\d)+/, function ({value}) {
-                return value === '12'
-            }]
+            rule: [BEFormValidator.DefaultRules.phone.ru]
         },
         message: {
             rule: {
