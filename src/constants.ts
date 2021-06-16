@@ -1,6 +1,7 @@
 export const constants = Object.create({});
 
 constants.VERSION = '0.0.1';
+constants.PACKAGE_NAME_IN_FORM = '__BEFV';
 
 constants.VALIDATOR_TYPES = {
 	phone: 'phone',

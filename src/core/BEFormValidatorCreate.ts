@@ -15,9 +15,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		this.__initialInputs = validateElements;
 		this.form = Object.assign(this.form, form);
 
-		Object.defineProperty(this.form.element, '__BEFV', {
+		Object.defineProperty(this.form.element, constants.PACKAGE_NAME_IN_FORM, {
 			value: this
-		})
+		});
 	}
 
 	private formSubmitHandler(e: Event): void {
@@ -78,7 +78,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		try {
 			this.validatorOptionsChecker();
 
-			this.form.element.setAttribute('data-be-valid', '0');
+			this.form.element.setAttribute(constants.DATASET.VALID, '0');
 
 			for (let i = 0; i !== this.__initialInputs.length; i++) {
 				let newValidateElement: ValidateElement = new ValidateElement(this.__initialInputs[i], this.form);

@@ -78,7 +78,7 @@ export class ValidateElement implements ValidateElementImpl {
 					const _rule = (<Array<RegExp | Function>>rule);
 
 					if (_rule.length) {
-						_rule.map((r: TRule) => validateDefaultRule(r))
+						_rule.map((r: TRule) => validateDefaultRule(r));
 					} else {
 						ValidateElement.Error('rule of array [] is empty.', this.opt.element.className);
 					}
