@@ -55,7 +55,9 @@ const validationItems = [
     {
         element: phone,
         rules: {
-            rule: /(\d)+/
+            rule: [/(\d)+/, function ({value}) {
+                return value === '12'
+            }]
         },
         message: {
             rule: {
@@ -67,8 +69,8 @@ const validationItems = [
         element: email,
         rules: {
             required: true,
-            rule: function (value) {
-                return value === '12'
+            rule: function ({value}) {
+                return value === '12'       
             }
         },
         message: {

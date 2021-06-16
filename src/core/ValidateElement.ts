@@ -1,9 +1,9 @@
-import {AValidateForm, AValidateInput, TInputElement, TInputValidate} from "../types";
+import {AValidateForm, AValidateInput, TRule, ValidateElementImpl} from "../types";
 import {Exception} from "./components/Exception";
 import {InputMessage} from "./components/InputMessage";
 import {constants} from "../constants";
 
-export class ValidateElement {
+export class ValidateElement implements ValidateElementImpl {
 	public isValid: boolean = false;
 	public isInit: boolean = false;
 
@@ -46,32 +46,47 @@ export class ValidateElement {
 		}
 
 		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
-			const rule = rules.rule;
-			let res;
+			const rule: TRule = rules.rule;
+			let res: boolean = false;
+
+			const validateDefaultRule = (_rule: TRule) => {
+				switch (_rule.constructor) {
+					case RegExp: {
+						if ((<RegExp>_rule).test(value.toString())) {
+							res = true;
+							break;
+						}
+						break;
+					}
+
+					case Function: {
+						if ((<Function>_rule).call(this, this.opt.element, this.validator)) {
+							res = true;
+							break;
+						}
+						break;
+					}
+
+					default: {
+						ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
+					}
+				}
+			}
 
 			switch (rule.constructor) {
-				case RegExp: {
-					if (rule.test(value.toString())) {
-						res = true;
-						break;
+				case Array: {
+					const _rule = (<Array<RegExp | Function>>rule);
+
+					if (_rule.length) {
+						_rule.map((r: TRule) => validateDefaultRule(r))
+					} else {
+						ValidateElement.Error('rule of array [] is empty.', this.opt.element.className);
 					}
-
-					res = false;
-					break;
-				}
-
-				case Function: {
-					if (rule.call(this, value, this.validator)) {
-						res = true;
-						break;
-					}
-
-					res = false;
 					break;
 				}
 
 				default: {
-					ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
+					validateDefaultRule(rule);
 				}
 			}
 

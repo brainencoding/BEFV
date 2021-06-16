@@ -19,6 +19,16 @@ export interface InputMessageImpl {
 	changeStatus(status: boolean, text: string): void;
 }
 
+export interface ValidateElementImpl {
+	isValid: boolean;
+	isInit: boolean;
+	messages: InputMessageImpl;
+	validate(): void;
+	init(): void;
+	isCorrect(): boolean;
+	destroy(): void;
+}
+
 type TUtils = {
 		errorConstructor: (beFormValidator: string) => (text: string) => Error;
 		toBoolean: (num: Number | String | Boolean) => Boolean | Number;
@@ -32,18 +42,20 @@ export type TBEFormValidator = {
 
 export type TInputElement = HTMLInputElement;
 
-export type TInputValidate = {
-	input: TInputElement;
-	id: any;
+export type TRules = {
+	required: Boolean;
+	rule: TRule;
 }
+
+export type TRule = Array<RegExp | Function> | RegExp | Function;
 
 export abstract class AValidateInput {
 	element?: TInputElement;
-	rules?: Record<any, any>;
+	rules?: TRules;
 	handlers?: Record<string, Function>;
 	subscriptions?: Record<any, any>;
 	message?: Record<any, any>;
-	onlyOnSubmit?: Boolean;
+	onlyOnSubmit?: boolean;
 }
 
 export abstract class AValidateForm {

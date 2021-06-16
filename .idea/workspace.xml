@@ -29,16 +29,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/DefaultRules.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Typescript Class" />
+        <option value="TS Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +81,7 @@
       <workItem from="1623444895627" duration="3331000" />
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
-      <workItem from="1623608874466" duration="41788000" />
+      <workItem from="1623608874466" duration="46236000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -200,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623797953134</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix: bug with non removing message">
+      <created>1623798748763</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1623798748763</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,21 +265,27 @@
     <MESSAGE value="feet: ADD SUPPROTING input bordering" />
     <MESSAGE value="feet: ADD SUPPROTING input bordering _2" />
     <MESSAGE value="feet: Add default values for remove more condition&lt; and add supporting validate when input" />
-    <option name="LAST_COMMIT_MESSAGE" value="feet: Add default values for remove more condition&lt; and add supporting validate when input" />
+    <MESSAGE value="upd: prety code" />
+    <MESSAGE value="fix: bug with non removing message" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: bug with non removing message" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
+    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1623877639066">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623877639066" />
     <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623706574468">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
-    <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623678996759">
+    <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623873206563">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="674" y="295" width="572" height="520" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623678996759" />
+    <state x="674" y="295" width="572" height="520" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623873206563" />
     <state x="723" y="346" key="git4idea.ui.GitUnstashDialog" timestamp="1623798115465">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
