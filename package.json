@@ -1,6 +1,6 @@
 {
   "name": "be-form-validator",
-  "version": "1.3.8",
+  "version": "1.4.2",
   "description": "",
   "main": "lib/BEFV.min.js",
   "scripts": {

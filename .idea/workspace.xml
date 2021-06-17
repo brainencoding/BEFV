@@ -29,11 +29,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example/auth-form/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/auth-form/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,18 +66,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/auth-form" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\example\auth-form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\example\default-form" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core\components" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BE-form-validator/example/index.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BE-form-validator/example/default-form/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -281,7 +289,35 @@
       <option name="project" value="LOCAL" />
       <updated>1623963781074</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix: change incorrect field">
+      <created>1623964299598</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1623964299598</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix: field only on submit">
+      <created>1623965645113</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1623965645113</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chore: remove log">
+      <created>1623965725492</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1623965725492</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feet: add supporting checkbox">
+      <created>1623966389192</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1623966389192</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,10 +348,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: create class for custom Exception" />
-    <MESSAGE value="upd: obj with constants" />
-    <MESSAGE value="upd: Create and wrote Factory Validator" />
-    <MESSAGE value="upd: utils" />
     <MESSAGE value="upd: interface for BEFormValidator" />
     <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
     <MESSAGE value="feet: Add class for append/remove error/success message under input" />
@@ -337,13 +369,21 @@
     <MESSAGE value="upd: pretty code, do valid regex for NOT MULTI LINE STROKE" />
     <MESSAGE value="upd: optimize code and add getting element of string" />
     <MESSAGE value="upd: add getting form of string" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: add getting form of string" />
+    <MESSAGE value="fix: change incorrect field" />
+    <MESSAGE value="fix: field only on submit" />
+    <MESSAGE value="chore: remove log" />
+    <MESSAGE value="feet: add supporting checkbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: add supporting checkbox" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
+    <state x="729" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1623964458785">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="729" y="359" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623964458785" />
     <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1623877639066">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -360,13 +400,13 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="723" y="346" key="git4idea.ui.GitUnstashDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623798115465" />
-    <state x="616" y="258" key="run.anything.popup" timestamp="1623963236011">
+    <state x="616" y="258" key="run.anything.popup" timestamp="1623966309101">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623963236011" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623786646977">
+    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623966309101" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623964233196">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623786646977" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623964233196" />
   </component>
 </project>
