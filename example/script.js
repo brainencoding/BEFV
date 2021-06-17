@@ -45,7 +45,7 @@ const validationItems = [
         }
     },
     {
-        element: '.phone',
+        element: phone,
         rules: {
             rule: [BEFormValidator.DefaultRules.phone.ru]
         },

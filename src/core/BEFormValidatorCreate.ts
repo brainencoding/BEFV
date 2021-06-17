@@ -15,6 +15,19 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		this.__initialInputs = validateElements;
 		this.form = Object.assign(this.form, form);
 
+		if (typeof this.form.element === 'string') {
+			// @ts-ignore
+			const gettingElement = document.querySelector(this.form.element);
+			                                          	
+			if (gettingElement) {
+				// @ts-ignore
+				this.form.element = gettingElement;
+			} else {
+				this.form.element = undefined;
+				throw(ValidateElement.Error('{ element } is undefined!'));
+			}
+		}
+
 		Object.defineProperty(this.form.element, constants.PACKAGE_NAME_IN_FORM, {
 			value: this
 		});

@@ -32,8 +32,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/InputMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/InputMessage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623962307642</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="upd: optimize code and add getting element of string">
+      <created>1623963637507</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1623963637507</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +304,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: settings webpack" />
     <MESSAGE value="chore: set mock types" />
     <MESSAGE value="upd: create class for custom Exception" />
     <MESSAGE value="upd: obj with constants" />
@@ -323,7 +328,8 @@
     <MESSAGE value="upd: Add default Rules" />
     <MESSAGE value="upd" />
     <MESSAGE value="upd: pretty code, do valid regex for NOT MULTI LINE STROKE" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: pretty code, do valid regex for NOT MULTI LINE STROKE" />
+    <MESSAGE value="upd: optimize code and add getting element of string" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: optimize code and add getting element of string" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
