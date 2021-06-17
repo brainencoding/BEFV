@@ -32,6 +32,8 @@ export class ValidateElement implements ValidateElementImpl {
 		let res: boolean = false;
 
 		const value = this.opt.element?.value;
+		const isCheckBox = this.opt.element.type === 'checkbox';
+		const stateChecked = this.opt.element.checked
 		const rules = this.opt.rules;
 		const message = this.opt.message;
 
@@ -49,7 +51,7 @@ export class ValidateElement implements ValidateElementImpl {
 		}
 
 		if (rules.hasOwnProperty('required') && rules.required) {
-			const valCond = !!value;
+			let valCond = isCheckBox ? stateChecked : !!value;
 
 			this.messages.changeStatus(valCond,
 				message && message.required ?
