@@ -28,7 +28,6 @@ export class InputMessage implements InputMessageImpl {
 	}
 
 	public append(): void {
-
 		if (!this.opt.noSpan) {
 			if (!this.opt.noAdjacent) {
 				this.input.insertAdjacentElement('afterend', this.messageHTML);
@@ -43,6 +42,8 @@ export class InputMessage implements InputMessageImpl {
 	}
 
 	public changeStatus(status: boolean, text: string = this.text): void {
+		this.remove();
+
 		const classNameConditionStatus = !status ? constants.ERROR_MESSAGE_CLASS_NAME : constants.SUCCESS_MESSAGE_CLASS_NAME;
 
 		if (!this.opt.noSpan) {
@@ -55,6 +56,8 @@ export class InputMessage implements InputMessageImpl {
 		if (this.opt.hasOwnProperty('border') && this.opt.border) {
 			this.input.classList.add(classNameConditionStatus + '-input');
 		}
+
+		this.append();
 	}
 
 	public remove(): void {

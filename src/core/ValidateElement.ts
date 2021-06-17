@@ -11,6 +11,19 @@ export class ValidateElement implements ValidateElementImpl {
 
 	constructor(public opt: AValidateInput, public validator: AValidateForm) {
 		this.opt = Object.assign(this.opt, constants.DEFAUTL_VALUES.VALIDATION_ELEMENT);
+
+		if (typeof this.opt.element === 'string') {
+			// @ts-ignore
+			const gettingElement = document.querySelector(this.opt.element);
+
+			if (gettingElement) {
+				// @ts-ignore
+				this.opt.element = gettingElement;
+			} else {
+				this.opt.element = undefined;
+				console.error(ValidateElement.Error('{ element } is undefined!'));
+			}
+		}
 	}
 
 	public validate(): void {
@@ -27,7 +40,7 @@ export class ValidateElement implements ValidateElementImpl {
 			location: message.location || undefined,
 			noAdjacent: message.noAdjacent || undefined,
 			border: message.border || false,
-			noSpan: __conditionForSupportingOnlyBorder__
+			noSpan: __conditionForSupportingOnlyBorder__,
 		}
 
 		if (!this.messages) {
@@ -37,15 +50,11 @@ export class ValidateElement implements ValidateElementImpl {
 		if (rules.hasOwnProperty('required') && rules.required) {
 			const valCond = !!value;
 
-			this.messages.remove();
-
-			if (message && message.required) {
-				this.messages.changeStatus(valCond, message?.required[valCond ? 'success' : 'error']);
-			} else if (__conditionForSupportingOnlyBorder__) {
-				this.messages.changeStatus(valCond, '');
-			}
-
-			this.messages.append();
+			this.messages.changeStatus(valCond,
+				message && message.required ?
+					message?.required[valCond ? 'success' : 'error'] :
+					__conditionForSupportingOnlyBorder__ ? '' : ''
+			);
 
 			if (!valCond) {
 				this.opt.subscriptions.invalid();
@@ -56,7 +65,7 @@ export class ValidateElement implements ValidateElementImpl {
 		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
 			const rule: TRule = rules.rule;
 
-			const validateDefaultRule = (_rule: TRule) => {
+			const validateDefaultRule = (_rule: TRule): boolean => {
 				switch (_rule.constructor) {
 					case RegExp: {
 						return (<RegExp>_rule).test(value.toString());
@@ -66,41 +75,36 @@ export class ValidateElement implements ValidateElementImpl {
 						return (<Function>_rule).call(this, this.opt.element, this.validator);
 					}
 
+					case Array: {
+						const _rule = (<Array<RegExp | Function>>rule);
+						let localRes = false;
+
+						if (_rule.length) {
+							for (const r of _rule) {
+								const cond: boolean = validateDefaultRule(r);
+								localRes = cond;
+								if (!cond) {
+									break;
+								}
+							}
+						} else {
+							console.error(ValidateElement.Error('rule of array [] is empty.', this.opt.element.className));;
+						}
+
+						return localRes
+					}
+
 					default: {
 						throw ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
 					}
 				}
 			}
 
-			switch (rule.constructor) {
-				case Array: {
-					const _rule = (<Array<RegExp | Function>>rule);
+			res = validateDefaultRule(rule);
 
-					if (_rule.length) {
-						for (const r of _rule) {
-							const cond: boolean = validateDefaultRule(r);
-							res = cond;
-							if (!cond) {
-								break;
-							}
-						}
-					} else {
-						ValidateElement.Error('rule of array [] is empty.', this.opt.element.className);
-					}
-
-					break;
-				}
-
-				default: {
-					res = validateDefaultRule(rule);
-				}
-			}
-
-			this.messages.remove();
 			this.messages.changeStatus(res,
 				!res ? message.rule['error'] || '' : res ? message.rule['success'] || '' : ''
 			);
-			this.messages.append();
 
 			if (!res) {
 				this.opt.subscriptions.invalid();

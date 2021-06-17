@@ -45,7 +45,7 @@ const validationItems = [
         }
     },
     {
-        element: phone,
+        element: '.phone',
         rules: {
             rule: [BEFormValidator.DefaultRules.phone.ru]
         },
@@ -61,8 +61,6 @@ const validationItems = [
         rules: {
             required: true,
             rule: [/\D+/, function({value}) {
-                console.log(value)
-
                 return BEFormValidator.DefaultRules.email.test(value)
             }]
         },
