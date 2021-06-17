@@ -62,7 +62,7 @@ const inputConfig = {
     },
 }
 ```
-```
+
 if you need input handler, use
 ```js
     ...element: '.input'
