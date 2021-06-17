@@ -38,6 +38,7 @@ export type TBEFormValidator = {
 	__constants: Record<string, string | number>;
 	__utils: TUtils;
 	Create: BEFormValidatorCreateImpl;
+	DefaultRules: Record<string, RegExp | Function>
 }
 
 export type TInputElement = HTMLInputElement;

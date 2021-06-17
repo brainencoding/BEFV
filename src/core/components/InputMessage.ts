@@ -28,13 +28,16 @@ export class InputMessage implements InputMessageImpl {
 	}
 
 	public append(): void {
-		if (!this.opt.noAdjacent) {
-			this.input.insertAdjacentElement('afterend', this.messageHTML);
-		} else {
-			if (!this.opt.location) {
-				throw Exception.throw('{ messages.location } is undefined', 'InputMessage');
+
+		if (!this.opt.noSpan) {
+			if (!this.opt.noAdjacent) {
+				this.input.insertAdjacentElement('afterend', this.messageHTML);
 			} else {
-				this.opt.location.appendChild(this.messageHTML);
+				if (!this.opt.location) {
+					throw Exception.throw('{ messages.location } is undefined', 'InputMessage');
+				} else {
+					this.opt.location.appendChild(this.messageHTML);
+				}
 			}
 		}
 	}
@@ -42,17 +45,24 @@ export class InputMessage implements InputMessageImpl {
 	public changeStatus(status: boolean, text: string = this.text): void {
 		const classNameConditionStatus = !status ? constants.ERROR_MESSAGE_CLASS_NAME : constants.SUCCESS_MESSAGE_CLASS_NAME;
 
-		this.messageHTML.className = '';
-		this.messageHTML.classList.add(classNameConditionStatus);
+		if (!this.opt.noSpan) {
+			this.messageHTML.className = '';
+			this.messageHTML.classList.add(classNameConditionStatus);
+
+			this.messageHTML.innerText = text || '';
+		}
 
 		if (this.opt.hasOwnProperty('border') && this.opt.border) {
 			this.input.classList.add(classNameConditionStatus + '-input');
 		}
-
-		this.messageHTML.innerText = text;
 	}
 
 	public remove(): void {
+		if (this.opt.hasOwnProperty('border') && this.opt.border) {
+			this.input.classList.remove(constants.ERROR_MESSAGE_CLASS_NAME + '-input');
+			this.input.classList.remove(constants.SUCCESS_MESSAGE_CLASS_NAME + '-input');
+		}
+
 		this.messageHTML.remove();
 	}
 }

@@ -33,14 +33,6 @@ const validationItems = [
             required: true,
         },
         message: {
-            rule: {
-                error: 'Поле обязательно для заполнения',
-                success: 'Поле заполнено',
-            },
-            required: {
-                error: 'Поле required error',
-                success: 'Поле required success',
-            },
             border: true,
         },
         subscriptions: {
@@ -55,7 +47,7 @@ const validationItems = [
     {
         element: phone,
         rules: {
-            rule: [BEFormValidator.DefaultRules.phone.ru]
+            rule: BEFormValidator.DefaultRules.phone.ru
         },
         message: {
             rule: {
@@ -68,7 +60,7 @@ const validationItems = [
         rules: {
             required: true,
             rule: function ({value}) {
-                return value === '12'       
+                return value === '12'
             }
         },
         message: {
