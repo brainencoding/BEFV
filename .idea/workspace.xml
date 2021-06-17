@@ -30,6 +30,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
@@ -273,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623963637507</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="upd: add getting form of string">
+      <created>1623963781074</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1623963781074</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +312,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: set mock types" />
     <MESSAGE value="upd: create class for custom Exception" />
     <MESSAGE value="upd: obj with constants" />
     <MESSAGE value="upd: Create and wrote Factory Validator" />
@@ -329,7 +336,8 @@
     <MESSAGE value="upd" />
     <MESSAGE value="upd: pretty code, do valid regex for NOT MULTI LINE STROKE" />
     <MESSAGE value="upd: optimize code and add getting element of string" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: optimize code and add getting element of string" />
+    <MESSAGE value="upd: add getting form of string" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: add getting form of string" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">

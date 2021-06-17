@@ -65,7 +65,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				this.form.element.submit();
 			}
 
-			if (this.form.options.hasOwnProperty('submit') && this.form.options.submit instanceof Function) {
+			if (this.form.handlers.hasOwnProperty('submit') && this.form.handlers.submit instanceof Function) {
 				this.form.handlers.submit(e);
 			}
 		} else {
@@ -109,7 +109,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 					this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
 				}
 			} else {
-				Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject');
+				console.error(Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject'));
 				return;
 			}
 
