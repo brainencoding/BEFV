@@ -123,7 +123,6 @@ export class ValidateElement implements ValidateElementImpl {
 	}
 
 	public init(): void {
-		console.log(111, this.opt)
 		if (!this.isInit && !this.opt.onlyOnSubmit) {
 			this.opt.element.addEventListener('input', this.elementHandler.bind(this));
 		}
