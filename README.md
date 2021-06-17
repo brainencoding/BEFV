@@ -1,5 +1,5 @@
-# BEFV (BrainEncoding-form-validator)
-----
+# BEFV (BrainEncoding-form-validator) -  Vanilla javascript form validation library
+
 To create a validator instance use 
 ```js
     const instance = new BEFormValidator.Create(formConfig, [
@@ -132,6 +132,101 @@ If you use a checkbox, then only the rules: {required: true} fields are availabl
 ```
 
 ----
+## Example 
+```html
+<form action="/" method="POST" class="postcard js-postcard">
+  <input type="text" id="name">
+  <input type="text" id="email">
+  <textarea rows="5" id="message"></textarea>
+  <input type="checkbox" id="check">
+  
+  <input type="submit" value="Send message">
+</form>
+
+<script src="../BEFV.min.js"></script>
+<script src="script.js"></script>
+```
+script.js
+```js
+;(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.js-postcard');
+
+        if (form) {
+            const field = {
+                name: form.querySelector('#name'),
+                email: form.querySelector('#email'),
+                message: form.querySelector('#message'),
+                check: form.querySelector('#check'),
+            }
+
+            const inputs = [
+                {
+                    element: field.name,
+                    rules: {
+                        required: true
+                    },
+                    message: {
+                        required: {
+                            error: 'Field are required!'
+                        }
+                    }
+                },
+                {
+                    element: field.email,
+                    rules: {
+                        required: true,
+                        rule: BEFormValidator.DefaultRules.email
+                    },
+                    message: {
+                        required: {
+                            error: 'Field are required!'
+                        },
+                        rule: {
+                            error: 'E-mail is not valid. example: ex@info.com'
+                        }
+                    },
+                },
+                {
+                    element: field.message,
+                    rules: {
+                        required: true
+                    },
+                    message: {
+                        required: {
+                            error: 'Field are required!'
+                        }
+                    }
+                },
+                {
+                    element: field.check,
+                    rules: {
+                        required: true
+                    },
+                    message: {
+                        required: {
+                            error: 'Field are required!'
+                        }
+                    }
+                }
+            ]
+
+            const formConfig = {
+                element: form,
+                options: {
+                    default: true,
+                },
+            }
+
+            const instance = new BEFormValidator.Create(formConfig, inputs)
+            instance.init();
+        }
+    })
+})();
+
+```
+
+----
 ## Available default validators
 - **IsNumber**
 - **Phone**
@@ -139,7 +234,7 @@ If you use a checkbox, then only the rules: {required: true} fields are availabl
 - **Email**
 - **Card Holder**
   - Mastercard
-  - VisaMasterCard
+  - VisaMasterCarda
   - VisaCard
   - UnionPayCard
   - JCBCard
