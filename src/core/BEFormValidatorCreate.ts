@@ -70,7 +70,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				for (const input of this.inputs) {
 					input.destroy();
 				}
-				
+
 				this.inputs = [];
 			}
 		}
@@ -92,9 +92,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 
 			if (this.inputs.length) {
-					if (!this.__isInit) {
-						this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
-					}
+				if (!this.__isInit) {
+					this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
+				}
 			} else {
 				Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject');
 				return;

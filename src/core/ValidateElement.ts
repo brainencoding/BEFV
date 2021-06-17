@@ -4,168 +4,161 @@ import {InputMessage} from "./components/InputMessage";
 import {constants} from "../constants";
 
 export class ValidateElement implements ValidateElementImpl {
-    public isValid: boolean = false;
-    public isInit: boolean = false;
+	public isValid: boolean = false;
+	public isInit: boolean = false;
 
-    public messages: InputMessage;
+	public messages: InputMessage;
 
-    constructor(public opt: AValidateInput, public validator: AValidateForm) {
-        this.opt = Object.assign(this.opt, constants.DEFAUTL_VALUES.VALIDATION_ELEMENT);
-    }
+	constructor(public opt: AValidateInput, public validator: AValidateForm) {
+		this.opt = Object.assign(this.opt, constants.DEFAUTL_VALUES.VALIDATION_ELEMENT);
+	}
 
-    public validate(): void {
-        this.isValid = false;
-        let res: boolean = false;
+	public validate(): void {
+		this.isValid = false;
+		let res: boolean = false;
 
-        const value = this.opt.element?.value;
-        const rules = this.opt.rules;
-        const message = this.opt.message;
+		const value = this.opt.element?.value;
+		const rules = this.opt.rules;
+		const message = this.opt.message;
 
-        const __conditionForSupportingOnlyBorder__ = (!message.required && !message.rule && message.border)
+		const __conditionForSupportingOnlyBorder__ = (!message.required && !message.rule && message.border)
 
-        const InputMessageOpts = {
-            location: message.location || undefined,
-            noAdjacent: message.noAdjacent || undefined,
-            border: message.border || false,
+		const InputMessageOpts = {
+			location: message.location || undefined,
+			noAdjacent: message.noAdjacent || undefined,
+			border: message.border || false,
 			noSpan: __conditionForSupportingOnlyBorder__
-        }
+		}
 
-        if (!this.messages) {
-            this.messages = new InputMessage(' ', this.opt.element, InputMessageOpts);
-        }
+		if (!this.messages) {
+			this.messages = new InputMessage(' ', this.opt.element, InputMessageOpts);
+		}
 
-        if (rules.hasOwnProperty('required') && rules.required) {
-            const valCond = !!value;
+		if (rules.hasOwnProperty('required') && rules.required) {
+			const valCond = !!value;
 
-            this.messages.remove();
+			this.messages.remove();
 
-            if (message && message.required) {
-                this.messages.changeStatus(valCond, message?.required[valCond ? 'success' : 'error']);
-            } else if (__conditionForSupportingOnlyBorder__) {
+			if (message && message.required) {
+				this.messages.changeStatus(valCond, message?.required[valCond ? 'success' : 'error']);
+			} else if (__conditionForSupportingOnlyBorder__) {
 				this.messages.changeStatus(valCond, '');
-            }
+			}
 
-            this.messages.append();
+			this.messages.append();
 
-            if (!valCond) {
-                this.opt.subscriptions.invalid();
-                return;
-            }
-        }
+			if (!valCond) {
+				this.opt.subscriptions.invalid();
+				return;
+			}
+		}
 
-        if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
-            const rule: TRule = rules.rule;
+		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
+			const rule: TRule = rules.rule;
 
-            const validateDefaultRule = (_rule: TRule) => {
-                switch (_rule.constructor) {
-                    case RegExp: {
-                        const cond = (<RegExp>_rule).test(value.toString());
+			const validateDefaultRule = (_rule: TRule) => {
+				switch (_rule.constructor) {
+					case RegExp: {
+						return (<RegExp>_rule).test(value.toString());
+					}
 
-                        if (cond) {
-                            res = true;
-                            break;
-                        }
+					case Function: {
+						return (<Function>_rule).call(this, this.opt.element, this.validator);
+					}
 
-                        break;
-                    }
+					default: {
+						throw ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
+					}
+				}
+			}
 
-                    case Function: {
-                        if ((<Function>_rule).call(this, this.opt.element, this.validator)) {
-                            res = true;
-                            break;
-                        }
-                        break;
-                    }
+			switch (rule.constructor) {
+				case Array: {
+					const _rule = (<Array<RegExp | Function>>rule);
 
-                    default: {
-                        ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
-                    }
-                }
-            }
+					if (_rule.length) {
+						for (const r of _rule) {
+							const cond: boolean = validateDefaultRule(r);
+							res = cond;
+							if (!cond) {
+								break;
+							}
+						}
+					} else {
+						ValidateElement.Error('rule of array [] is empty.', this.opt.element.className);
+					}
 
-            switch (rule.constructor) {
-                case Array: {
-                    const _rule = (<Array<RegExp | Function>>rule);
+					break;
+				}
 
-                    if (_rule.length) {
-                        _rule.map((r: TRule) => validateDefaultRule(r));
-                    } else {
-                        ValidateElement.Error('rule of array [] is empty.', this.opt.element.className);
-                    }
+				default: {
+					res = validateDefaultRule(rule);
+				}
+			}
 
-                    break;
-                }
+			this.messages.remove();
+			this.messages.changeStatus(res,
+				!res ? message.rule['error'] || '' : res ? message.rule['success'] || '' : ''
+			);
+			this.messages.append();
 
-                default: {
-                    validateDefaultRule(rule);
-                }
-            }
+			if (!res) {
+				this.opt.subscriptions.invalid();
+				return;
+			}
+		}
 
-            this.messages.remove();
+		this.opt.subscriptions.valid(this);
+		this.isValid = true;
+	}
 
-            this.messages.changeStatus(res,
-                !res ? message.rule['error'] || '' : res ? message.rule['success'] || '' : ''
-            );
+	private elementHandler(e: Event): void {
+		this.opt.handlers.input(e);
+		this.validate();
+	}
 
-            this.messages.append();
+	public init(): void {
+		if (!this.isInit && !this.opt.onlyOnSubmit) {
+			this.opt.element.addEventListener('input', this.elementHandler.bind(this));
+		}
 
-            if (!res) {
-                this.opt.subscriptions.invalid();
-                return;
-            }
-        }
+		this.isInit = true;
+	}
 
-        this.opt.subscriptions.valid(this);
-        this.isValid = true;
-    }
+	public isCorrect(): boolean {
+		if (!this.opt.element) {
+			console.error(ValidateElement.Error('{ element } is undefined!'));
+			return false;
+		}
 
-    private elementHandler(e: Event): void {
-        this.opt.handlers.input(e);
-        this.validate();
-    }
+		if (!this.opt.hasOwnProperty('rules')) {
+			console.error(ValidateElement.Error('{ rules } is not defined!'));
+			return false;
+		}
 
-    public init(): void {
-        if (!this.isInit && !this.opt.onlyOnSubmit) {
-            this.opt.element.addEventListener('input', this.elementHandler.bind(this));
-        }
+		return true
+	}
 
-        this.isInit = true;
-    }
+	public destroy(idx?: number): void {
+		if (idx) {
+			ValidateElement.Error('object are destroyed for element [index => ' + idx + '], element is undefined!');
+		}
 
-    public isCorrect(): boolean {
-        if (!this.opt.element) {
-            console.error(ValidateElement.Error('{ element } is undefined!'));
-            return false;
-        }
+		if (this.isInit) {
+			this.opt.element.removeEventListener('input', this.elementHandler.bind(this));
 
-        if (!this.opt.hasOwnProperty('rules')) {
-            console.error(ValidateElement.Error('{ rules } is not defined!'));
-            return false;
-        }
+			if (this.messages && this.messages.remove) {
+				this.messages.remove();
+				this.messages = undefined;
+			}
+		}
+	}
 
-        return true
-    }
+	static Error(..._s: string[]): Exception {
+		const str: string = _s.reduce((acc, prev) => acc + prev);
 
-    public destroy(idx?: number): void {
-        if (idx) {
-            ValidateElement.Error('object are destroyed for element [index => ' + idx + '], element is undefined!');
-        }
-
-        if (this.isInit) {
-            this.opt.element.removeEventListener('input', this.elementHandler.bind(this));
-
-            if (this.messages && this.messages.remove) {
-                this.messages.remove();
-                this.messages = undefined;
-            }
-        }
-    }
-
-    static Error(..._s: string[]): Exception {
-        const str: string = _s.reduce((acc, prev) => acc + prev);
-
-        return Exception.throw(str, 'ValidateElement');
-    }
+		return Exception.throw(str, 'ValidateElement');
+	}
 }
 
 

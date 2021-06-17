@@ -47,9 +47,10 @@ const validationItems = [
     {
         element: phone,
         rules: {
-            rule: BEFormValidator.DefaultRules.phone.ru
+            rule: [BEFormValidator.DefaultRules.phone.ru]
         },
         message: {
+            border: true,
             rule: {
                 error: 'неверная херня',
             }
@@ -59,18 +60,21 @@ const validationItems = [
         element: email,
         rules: {
             required: true,
-            rule: function ({value}) {
-                return value === '12'
-            }
+            rule: [/\D+/, function({value}) {
+                console.log(value)
+
+                return BEFormValidator.DefaultRules.email.test(value)
+            }]
         },
         message: {
+            border: true,
             required: {
                 error: 'Поле required error',
                 success: 'Поле required success',
             },
             rule: {
-                error: '123123 Поле обязательно для заполнения',
-                success: '123123 Поле заполнено',
+                error: 'Email не валидный',
+                success: 'Email валидный ',
             },
         }
     },
