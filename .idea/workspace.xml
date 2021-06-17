@@ -29,14 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/auth-form/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/auth-form/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +311,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623966389192</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feet: add two examples">
+      <created>1623967587703</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1623967587703</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feet: UPDATE VERSION">
+      <created>1623967632548</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1623967632548</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,8 +356,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: interface for BEFormValidator" />
-    <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
     <MESSAGE value="feet: Add class for append/remove error/success message under input" />
     <MESSAGE value="feet: ADD REQUIRED RULE TO VALIDATOR METHOD" />
     <MESSAGE value="upd: correct checking required" />
@@ -373,7 +379,9 @@
     <MESSAGE value="fix: field only on submit" />
     <MESSAGE value="chore: remove log" />
     <MESSAGE value="feet: add supporting checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="feet: add supporting checkbox" />
+    <MESSAGE value="feet: add two examples" />
+    <MESSAGE value="feet: UPDATE VERSION" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: UPDATE VERSION" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
