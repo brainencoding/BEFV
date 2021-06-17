@@ -10,7 +10,8 @@ export class ValidateElement implements ValidateElementImpl {
 	public messages: InputMessage;
 
 	constructor(public opt: AValidateInput, public validator: AValidateForm) {
-		this.opt = Object.assign(this.opt, constants.DEFAUTL_VALUES.VALIDATION_ELEMENT);
+		const clone = {...constants.DEFAUTL_VALUES.VALIDATION_ELEMENT};
+		this.opt = Object.assign(clone, this.opt);
 
 		if (typeof this.opt.element === 'string') {
 			// @ts-ignore
@@ -122,6 +123,7 @@ export class ValidateElement implements ValidateElementImpl {
 	}
 
 	public init(): void {
+		console.log(111, this.opt)
 		if (!this.isInit && !this.opt.onlyOnSubmit) {
 			this.opt.element.addEventListener('input', this.elementHandler.bind(this));
 		}
