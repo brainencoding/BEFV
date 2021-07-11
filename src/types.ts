@@ -64,4 +64,5 @@ export abstract class AValidateForm {
 	options?: Record<string, any>;
 	subscriptions?: Record<any, any>;
 	handlers?: Record<any, any>;
+	earlyInputInitiation: boolean;
 }

@@ -104,6 +104,14 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				}
 			}
 
+			if (this.form.earlyInputInitiation) {
+				for (const input of this.inputs) {
+					if (!input.isInit) {
+						input.init();
+					}
+				}
+            }
+
 			if (this.inputs.length) {
 				if (!this.__isInit) {
 					this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
