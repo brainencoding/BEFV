@@ -10,7 +10,8 @@
 
             const loc = {
                 noAdjacent: true,
-                location: document.querySelector('.js-errors')
+                location: document.querySelector('.js-errors'),
+                border: true
             }
 
             const inputs = [
@@ -51,15 +52,21 @@
                 options: {
                     default: false,
                 },
-                subscription: {
+                subscriptions: {
                     valid() {
                         alert('FORM IS VALID')
+                    },
+                    invalid() {
+                        alert('FORM IS INVALID')
                     }
-                }
+                },
+                subscribeOnInput: true
             }
 
             const instance = new BEFormValidator.Create(formConfig, inputs)
             instance.init();
+
+            window.k = instance
         }
     })
 })();
