@@ -1,4 +1,4 @@
-import {AValidateForm, AValidateInput, TRule, ValidateElementImpl} from "../types";
+import {AValidateForm, AValidateInput, BEFormValidatorCreateImpl, TRule, ValidateElementImpl} from "../types";
 import {Exception} from "./components/Exception";
 import {InputMessage} from "./components/InputMessage";
 import {constants} from "../constants";
@@ -9,7 +9,7 @@ export class ValidateElement implements ValidateElementImpl {
 
 	public messages: InputMessage;
 
-	constructor(public opt: AValidateInput, public validator: AValidateForm) {
+	constructor(public opt: AValidateInput, public validator: BEFormValidatorCreateImpl) {
 		const clone = {...constants.DEFAUTL_VALUES.VALIDATION_ELEMENT};
 		this.opt = Object.assign(clone, this.opt);
 
@@ -29,6 +29,7 @@ export class ValidateElement implements ValidateElementImpl {
 
 	public validate(): void {
 		this.isValid = false;
+
 		let res: boolean = false;
 
 		const value = this.opt.element?.value;
@@ -122,6 +123,10 @@ export class ValidateElement implements ValidateElementImpl {
 	private elementHandler(e: Event): void {
 		this.opt.handlers.input(e);
 		this.validate();
+
+		if (this.validator.form.subscribeOnInput) { 
+			 this.validator.emitter.emit('BEForm::checkInputValidation');
+		}
 	}
 
 	public init(): void {

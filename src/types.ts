@@ -1,3 +1,5 @@
+import EventEmitter from "./core/EventEmitter";
+
 export {};
 
 declare global {
@@ -9,7 +11,7 @@ declare global {
 export interface BEFormValidatorCreateImpl {
 	form: AValidateForm;
 	isFormValid: boolean;
-	
+	emitter: EventEmitter;
 	init(): void;
 }
 
@@ -65,4 +67,5 @@ export abstract class AValidateForm {
 	subscriptions?: Record<any, any>;
 	handlers?: Record<any, any>;
 	earlyInputInitiation: boolean;
+	subscribeOnInput: boolean;
 }

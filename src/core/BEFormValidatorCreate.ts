@@ -1,4 +1,5 @@
-import {AValidateForm, AValidateInput, BEFormValidatorCreateImpl} from "../types";
+import EventEmitter from "./EventEmitter";
+import { AValidateForm, AValidateInput, BEFormValidatorCreateImpl } from "../types";
 import {Exception} from "./components/Exception";
 import {ValidateElement} from "./ValidateElement";
 import {constants} from "../constants";
@@ -7,6 +8,8 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	private readonly __initialInputs: AValidateInput[];
 	private inputs: ValidateElement[] = [];
 	public form: AValidateForm = constants.DEFAUTL_VALUES.VALIDATOR;
+
+	public emitter = new EventEmitter; 
 
 	public isFormValid: boolean = false;
 	private __isInit: boolean = false;
@@ -31,50 +34,86 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		Object.defineProperty(this.form.element, constants.PACKAGE_NAME_IN_FORM, {
 			value: this
 		});
+		
+		if (!this.form.hasOwnProperty('subscriptions')) {
+			this.form.subscriptions = {
+				valid: () => { },
+				invalid: () => { }
+			}
+		} else {
+			if (!('valid' in this.form.subscriptions) || !(this.form.subscriptions.valid instanceof Function)) {
+				this.form.subscriptions.valid = () => { };
+			}
+
+			if (!('invalid' in this.form.subscriptions)|| !(this.form.subscriptions.invalid instanceof Function)) {
+				this.form.subscriptions.invalid = () => { };
+			}
+		}
+
+		this.emitter.addListener('BEForm::isValidForm', () => {
+			const errorMessageInputClassName = constants.ERROR_MESSAGE_CLASS_NAME + 'input';
+
+			this.isFormValid = true;
+			this.form.element.setAttribute(constants.DATASET.VALID, '1');
+
+			this.form.element.querySelectorAll('be-error')?.forEach((beErrElement) => beErrElement.remove());
+			this.form.element.querySelectorAll(errorMessageInputClassName)
+				?.forEach((beErrElement) => {
+					if (beErrElement.classList.contains(errorMessageInputClassName)) {
+						beErrElement.classList.remove(errorMessageInputClassName);
+						beErrElement.classList.add(constants.SUCCESS_MESSAGE_CLASS_NAME + 'input');
+					}
+				});
+			this.form.subscriptions.valid(this);
+		});
+
+		this.emitter.addListener('BEForm::isInvalidForm', () => {
+			this.isFormValid = false;
+			this.form.element.setAttribute(constants.DATASET.VALID, '0');
+			this.form.subscriptions.invalid(this);
+		});
+
+		this.emitter.addListener('BEForm::checkInputValidation', (beforeValidation: Function = () => { }) => {
+			if (this.inputs.length) {
+				this.isFormValid = true;
+
+				for (const input of this.inputs) {
+					if (!input.isInit) {
+						input.init();
+					}
+
+					input.validate();
+
+					if (!input.isValid) {
+						if (this.isFormValid) {
+							this.isFormValid = false;
+						}
+					}
+				}
+			}
+
+			this.emitter.emit('BEForm::' + (this.isFormValid ? 'isValidForm' : 'isInvalidForm'));
+
+			if (beforeValidation instanceof Function) {
+				beforeValidation();
+			}
+		});
 	}
 
 	private formSubmitHandler(e: Event): void {
 		e.preventDefault();
 
-		if (this.inputs.length) {
-			this.isFormValid = true;
-
-			for (const input of this.inputs) {
-				if (!input.isInit) {
-					input.init();
+		this.emitter.emit('BEForm::checkInputValidation', () => {
+			if (this.isFormValid) {
+				if (this.form.options?.default) {
+					this.form.element.submit();
 				}
 
-				input.validate();
-
-				if (!input.isValid) {
-					if (this.isFormValid) {
-						this.isFormValid = false;
-					}
+				if (this.form.handlers.hasOwnProperty('submit') && this.form.handlers.submit instanceof Function) {
+					this.form.handlers.submit(e);
 				}
 			}
-		}
-
-		if (this.isFormValid) {
-			this.form.element.setAttribute(constants.DATASET.VALID, '1');
-
-			if (this.form.subscriptions?.valid) {
-				this.form.subscriptions.valid(this);
-			}
-
-			if (this.form.options?.default) {
-				this.form.element.submit();
-			}
-
-			if (this.form.handlers.hasOwnProperty('submit') && this.form.handlers.submit instanceof Function) {
-				this.form.handlers.submit(e);
-			}
-		} else {
-			this.form.element.setAttribute(constants.DATASET.VALID, '0');
-
-			if (this.form.subscriptions?.invalid) {
-				this.form.subscriptions.invalid(this);
-			}
-		}
+		});
 	}
 
 	public init(): void {
@@ -94,7 +133,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			this.form.element.setAttribute(constants.DATASET.VALID, '0');
 
 			for (let i = 0; i !== this.__initialInputs.length; i++) {
-				let newValidateElement: ValidateElement = new ValidateElement(this.__initialInputs[i], this.form);
+				let newValidateElement: ValidateElement = new ValidateElement(this.__initialInputs[i], this);
 
 				if (newValidateElement.isCorrect()) {
 					this.inputs.push(newValidateElement);
