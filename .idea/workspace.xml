@@ -28,9 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -338,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623970235146</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="feet: UPDATE DOCS /3">
+      <created>1623970534609</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1623970534609</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +374,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: correct checking required" />
     <MESSAGE value="upd: apply reinit Creator when update configuration" />
     <MESSAGE value="upd: minify condition for change status in input message" />
     <MESSAGE value="feet: ADD SUPPROTING CUSTORM RULE" />
@@ -394,7 +398,8 @@
     <MESSAGE value="feet: UPDATE VERSION" />
     <MESSAGE value="feet: UPDATE DOCS" />
     <MESSAGE value="feet: UPDATE DOCS /2" />
-    <option name="LAST_COMMIT_MESSAGE" value="feet: UPDATE DOCS /2" />
+    <MESSAGE value="feet: UPDATE DOCS /3" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: UPDATE DOCS /3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
@@ -413,10 +418,10 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1623970240756">
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1623970541105">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1623970240756" />
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1623970541105" />
     <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623962830801">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>

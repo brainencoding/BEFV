@@ -20,7 +20,7 @@ export class InputMessage implements InputMessageImpl {
 	}
 
 	private static createWrapper(text: string, status: boolean): HTMLElement {
-		const wrapper = document.createElement('span');
+		const wrapper = document.createElement('be-error');
 		wrapper.classList.add(!status ? constants.ERROR_MESSAGE_CLASS_NAME : constants.SUCCESS_MESSAGE_CLASS_NAME);
 		wrapper.textContent = text;
 

@@ -31,7 +31,7 @@
                     rules: {
                         required: true,
                         rule: ({value}) => {
-
+                            return value.length >= 8
                         }
                     },
                     message: {
