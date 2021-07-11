@@ -5,7 +5,8 @@ To create a validator instance use
     const instance = new BEFormValidator.Create(formConfig, [
         inputConfig1,
         inputConfig2
-    ])
+    ]);
+    
     instance.init();
 ```
 
@@ -18,6 +19,7 @@ const formConfig = {
     options: {
         default: true // - if you need a standard form submission, then set the default flag to true
     },
+    earlyInputInitiation: true, // early initiation input validation (when init form)
     handlers: {
         submit(event) {
             console.log(event) // Event Listener - Submit
