@@ -2,7 +2,7 @@
 
 To create a validator instance use 
 ```js
-    const instance = new BEFormValidator.Create(formConfig, [
+    const instance = new BEFormValidator.Create(formConfig /* declaration bottom */ , [
         inputConfig1,
         inputConfig2
     ]);
@@ -16,15 +16,22 @@ To create a validator instance use
 ```js
 const formConfig = {
     element: 'form', // Form element, can be as string for get element or HTMLFormElement
+
     options: {
         default: true // - if you need a standard form submission, then set the default flag to true
     },
+
     earlyInputInitiation: true, // early initiation input validation (when init form)
+
+    // use very carefully
+    subscribeOnInput: true, // basicly subscriptions work on submit, if this param is true, subcriptions like (valid, and invalid) is calling when you fill the input or etc...
+
     handlers: {
         submit(event) {
             console.log(event) // Event Listener - Submit
         }
     },
+
     subscriptions: {
         valid(validator) {
             console.log('Form is valid')
