@@ -28,7 +28,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="" />
+    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_06_2021_21_50__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_06_2021_21_50__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/EventEmitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/EventEmitter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,33 +64,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/auth-form" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\Andrey\Desktop\prjs\BEFV\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\example\auth-form" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\example\default-form" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core\components" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BE-form-validator/example/default-form/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.index.html" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -97,6 +91,7 @@
       <workItem from="1623450706635" duration="40000" />
       <workItem from="1623450770906" duration="6731000" />
       <workItem from="1623608874466" duration="51320000" />
+      <workItem from="1623942269806" duration="2817000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -259,95 +254,11 @@
       <option name="project" value="LOCAL" />
       <updated>1623882267975</updated>
     </task>
-    <task id="LOCAL-00024" summary="upd: pretty code, do valid regex for NOT MULTI LINE STROKE">
-      <created>1623962307642</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1623962307642</updated>
-    </task>
-    <task id="LOCAL-00025" summary="upd: optimize code and add getting element of string">
-      <created>1623963637507</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1623963637507</updated>
-    </task>
-    <task id="LOCAL-00026" summary="upd: add getting form of string">
-      <created>1623963781074</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1623963781074</updated>
-    </task>
-    <task id="LOCAL-00027" summary="fix: change incorrect field">
-      <created>1623964299598</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1623964299598</updated>
-    </task>
-    <task id="LOCAL-00028" summary="fix: field only on submit">
-      <created>1623965645113</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1623965645113</updated>
-    </task>
-    <task id="LOCAL-00029" summary="chore: remove log">
-      <created>1623965725492</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1623965725492</updated>
-    </task>
-    <task id="LOCAL-00030" summary="feet: add supporting checkbox">
-      <created>1623966389192</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1623966389192</updated>
-    </task>
-    <task id="LOCAL-00031" summary="feet: add two examples">
-      <created>1623967587703</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1623967587703</updated>
-    </task>
-    <task id="LOCAL-00032" summary="feet: UPDATE VERSION">
-      <created>1623967632548</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1623967632548</updated>
-    </task>
-    <task id="LOCAL-00033" summary="feet: UPDATE DOCS">
-      <created>1623970172307</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1623970172307</updated>
-    </task>
-    <task id="LOCAL-00034" summary="feet: UPDATE DOCS /2">
-      <created>1623970235146</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1623970235146</updated>
-    </task>
-    <task id="LOCAL-00035" summary="feet: UPDATE DOCS /3">
-      <created>1623970534609</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1623970534609</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -374,6 +285,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: init project" />
+    <MESSAGE value="chore: settings webpack" />
+    <MESSAGE value="chore: set mock types" />
+    <MESSAGE value="upd: create class for custom Exception" />
+    <MESSAGE value="upd: obj with constants" />
+    <MESSAGE value="upd: Create and wrote Factory Validator" />
+    <MESSAGE value="upd: utils" />
+    <MESSAGE value="upd: interface for BEFormValidator" />
+    <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
+    <MESSAGE value="feet: Add class for append/remove error/success message under input" />
+    <MESSAGE value="feet: ADD REQUIRED RULE TO VALIDATOR METHOD" />
+    <MESSAGE value="upd: correct checking required" />
     <MESSAGE value="upd: apply reinit Creator when update configuration" />
     <MESSAGE value="upd: minify condition for change status in input message" />
     <MESSAGE value="feet: ADD SUPPROTING CUSTORM RULE" />
@@ -387,29 +310,13 @@
     <MESSAGE value="upd: Add defaultRules" />
     <MESSAGE value="upd: Add default Rules" />
     <MESSAGE value="upd" />
-    <MESSAGE value="upd: pretty code, do valid regex for NOT MULTI LINE STROKE" />
-    <MESSAGE value="upd: optimize code and add getting element of string" />
-    <MESSAGE value="upd: add getting form of string" />
-    <MESSAGE value="fix: change incorrect field" />
-    <MESSAGE value="fix: field only on submit" />
-    <MESSAGE value="chore: remove log" />
-    <MESSAGE value="feet: add supporting checkbox" />
-    <MESSAGE value="feet: add two examples" />
-    <MESSAGE value="feet: UPDATE VERSION" />
-    <MESSAGE value="feet: UPDATE DOCS" />
-    <MESSAGE value="feet: UPDATE DOCS /2" />
-    <MESSAGE value="feet: UPDATE DOCS /3" />
-    <option name="LAST_COMMIT_MESSAGE" value="feet: UPDATE DOCS /3" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
-    <state x="729" y="359" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1623964458785">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="729" y="359" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623964458785" />
     <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1623877639066">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -418,25 +325,23 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1623970541105">
+    <state x="674" y="295" width="572" height="534" key="find.popup" timestamp="1628762713168">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1623970541105" />
-    <state x="674" y="295" width="572" height="520" key="find.popup" timestamp="1623962830801">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="674" y="295" width="572" height="520" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623962830801" />
+    <state x="674" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628762713168" />
+    <state x="674" y="295" width="572" height="534" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623944301983" />
     <state x="723" y="346" key="git4idea.ui.GitUnstashDialog" timestamp="1623798115465">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="723" y="346" key="git4idea.ui.GitUnstashDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623798115465" />
-    <state x="616" y="258" key="run.anything.popup" timestamp="1623966309101">
+    <state x="616" y="258" key="run.anything.popup" timestamp="1628761160210">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623966309101" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623964233196">
+    <state x="616" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628761160210" />
+    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623943493399" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1623786646977">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623964233196" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623786646977" />
   </component>
 </project>

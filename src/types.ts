@@ -13,6 +13,9 @@ export interface BEFormValidatorCreateImpl {
 	isFormValid: boolean;
 	emitter: EventEmitter;
 	init(): void;
+	uid: string;
+	emit(name: string, ...data:any): void;
+	addListener(name: string, ...callback: Function[]): void;
 }
 
 export interface InputMessageImpl {

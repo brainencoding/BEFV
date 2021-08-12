@@ -1,5 +1,7 @@
 class EventEmitter {
-    constructor(private events: Record<any, any> = {}) { }
+    static instance: EventEmitter;
+
+    constructor(private events: Record<any, any> = {}) {}
 
     addListener(eventName: string, ...callbacks: Array<Function>): void {
         if (!callbacks) {

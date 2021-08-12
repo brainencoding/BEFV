@@ -13,10 +13,23 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
 	public isFormValid: boolean = false;
 	private __isInit: boolean = false;
+	uid = Date.now().toString() + Math.floor(Math.random() * Date.now()).toString();
+
+	emit(name: string, ...data: any) {
+		console.log(this.uid + ' => ' + name)
+		this.emitter.emit(this.uid + ' => ' + name, ...data)
+	}
+
+	addListener(name: string, ...callback: Function[]) {
+		this.emitter.addListener(this.uid + ' => ' + name, ...callback)
+	}
 
 	constructor(form: AValidateForm, validateElements: AValidateInput[]) {
+		console.log('form', form)
+		console.log('this.form', this.form)
 		this.__initialInputs = validateElements;
-		this.form = Object.assign(this.form, form);
+		this.form = form;
+		console.log('2 this.form', this.form)
 
 		if (typeof this.form.element === 'string') {
 			// @ts-ignore
@@ -50,30 +63,34 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 		}
 
-		this.emitter.addListener('BEForm::isValidForm', () => {
+		function Event_isValidForm() {
 			const errorMessageInputClassName = constants.ERROR_MESSAGE_CLASS_NAME + 'input';
 
 			this.isFormValid = true;
 			this.form.element.setAttribute(constants.DATASET.VALID, '1');
 
-			this.form.element.querySelectorAll('be-error')?.forEach((beErrElement) => beErrElement.remove());
+			this.form.element.querySelectorAll('be-error')?.forEach((beErrElement: HTMLElement) => beErrElement.remove());
 			this.form.element.querySelectorAll(errorMessageInputClassName)
-				?.forEach((beErrElement) => {
+				?.forEach((beErrElement: HTMLElement) => {
 					if (beErrElement.classList.contains(errorMessageInputClassName)) {
 						beErrElement.classList.remove(errorMessageInputClassName);
 						beErrElement.classList.add(constants.SUCCESS_MESSAGE_CLASS_NAME + 'input');
 					}
 				});
-			this.form.subscriptions.valid(this);
-		});
 
-		this.emitter.addListener('BEForm::isInvalidForm', () => {
+			this.form.subscriptions.valid(this);
+		}
+
+		this.addListener('BEForm::isValidForm', Event_isValidForm.bind(this));
+
+		function Event_isInvalidForm() {
 			this.isFormValid = false;
 			this.form.element.setAttribute(constants.DATASET.VALID, '0');
 			this.form.subscriptions.invalid(this);
-		});
+		}
+		this.addListener('BEForm::isInvalidForm', Event_isInvalidForm.bind(this));
 
-		this.emitter.addListener('BEForm::checkInputValidation', (beforeValidation: Function = () => { }) => {
+		function Event_checkInputValidation(beforeValidation: Function = () => { }) {
 			if (this.inputs.length) {
 				this.isFormValid = true;
 
@@ -92,18 +109,20 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				}
 			}
 
-			this.emitter.emit('BEForm::' + (this.isFormValid ? 'isValidForm' : 'isInvalidForm'));
+			this.emit('BEForm::' + (this.isFormValid ? 'isValidForm' : 'isInvalidForm'));
 
 			if (beforeValidation instanceof Function) {
 				beforeValidation();
 			}
-		});
+		}
+
+		this.addListener('BEForm::checkInputValidation', Event_checkInputValidation.bind(this));
 	}
 
 	private formSubmitHandler(e: Event): void {
 		e.preventDefault();
 
-		this.emitter.emit('BEForm::checkInputValidation', () => {
+		this.emit('BEForm::checkInputValidation', () => {
 			if (this.isFormValid) {
 				if (this.form.options?.default) {
 					this.form.element.submit();

@@ -125,7 +125,7 @@ export class ValidateElement implements ValidateElementImpl {
 		this.validate();
 
 		if (this.validator.form.subscribeOnInput) { 
-			 this.validator.emitter.emit('BEForm::checkInputValidation');
+			 this.validator.emit('BEForm::checkInputValidation');
 		}
 	}
 
