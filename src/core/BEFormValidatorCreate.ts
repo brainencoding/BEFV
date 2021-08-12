@@ -16,7 +16,6 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	uid = Date.now().toString() + Math.floor(Math.random() * Date.now()).toString();
 
 	emit(name: string, ...data: any) {
-		console.log(this.uid + ' => ' + name)
 		this.emitter.emit(this.uid + ' => ' + name, ...data)
 	}
 
@@ -25,11 +24,8 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	}
 
 	constructor(form: AValidateForm, validateElements: AValidateInput[]) {
-		console.log('form', form)
-		console.log('this.form', this.form)
 		this.__initialInputs = validateElements;
 		this.form = form;
-		console.log('2 this.form', this.form)
 
 		if (typeof this.form.element === 'string') {
 			// @ts-ignore

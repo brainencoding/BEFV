@@ -28,15 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_06_2021_21_50__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_06_2021_21_50__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/EventEmitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/EventEmitter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623882267975</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fix: emit non uniq form">
+      <created>1628763184348</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1628763184348</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +284,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: init project" />
     <MESSAGE value="chore: settings webpack" />
     <MESSAGE value="chore: set mock types" />
     <MESSAGE value="upd: create class for custom Exception" />
@@ -310,7 +308,8 @@
     <MESSAGE value="upd: Add defaultRules" />
     <MESSAGE value="upd: Add default Rules" />
     <MESSAGE value="upd" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd" />
+    <MESSAGE value="Fix: emit non uniq form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: emit non uniq form" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
@@ -325,6 +324,14 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
+    <state x="92" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1628763356275">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="92" y="122" width="1736" height="866" key="DiffContextDialog/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763356275" />
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1628763296233">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763296233" />
     <state x="674" y="295" width="572" height="534" key="find.popup" timestamp="1628762713168">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
