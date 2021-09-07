@@ -29,15 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2021_11_23_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2021_11_23__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/default-form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/default-form/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ValidateElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ValidateElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +101,7 @@
       <workItem from="1623608874466" duration="51320000" />
       <workItem from="1623942269806" duration="2817000" />
       <workItem from="1628763373913" duration="216000" />
-      <workItem from="1630413881337" duration="7449000" />
+      <workItem from="1630413881337" duration="8969000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -286,7 +278,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628763457715</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feet: add method which block render message of rule and user can set custom message (see docs README.md)">
+      <created>1631017528721</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1631017528721</updated>
+    </task>
+    <task id="LOCAL-00027" summary="docs: update(add messagePreventDefault doc)">
+      <created>1631017976648</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1631017976648</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,8 +323,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: set mock types" />
-    <MESSAGE value="upd: create class for custom Exception" />
     <MESSAGE value="upd: obj with constants" />
     <MESSAGE value="upd: Create and wrote Factory Validator" />
     <MESSAGE value="upd: utils" />
@@ -342,7 +346,9 @@
     <MESSAGE value="upd" />
     <MESSAGE value="Fix: emit non uniq form" />
     <MESSAGE value="chore: remove console logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: remove console logs" />
+    <MESSAGE value="feet: added method which block render message of rule and user can set custom message (see docs README.md)" />
+    <MESSAGE value="docs: update(add messagePreventDefault doc)" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
@@ -361,9 +367,14 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="92" y="122" width="1736" height="866" key="DiffContextDialog/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763603712" />
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1628763555080">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="-1418" y="455" key="GitRewordDialog" timestamp="1631017547295">
+      <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
+    <state x="-1418" y="455" key="GitRewordDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017547295" />
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1631018288468">
+      <screen x="-1920" y="30" width="1920" height="1050" />
+    </state>
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763555080" />
     <state x="-1246" y="295" width="572" height="534" key="find.popup" timestamp="1631017014244">
       <screen x="-1920" y="30" width="1920" height="1050" />
@@ -375,10 +386,10 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="723" y="346" key="git4idea.ui.GitUnstashDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623798115465" />
-    <state x="-1304" y="258" key="run.anything.popup" timestamp="1630417259577">
+    <state x="-1304" y="258" key="run.anything.popup" timestamp="1631017798060">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1630417259577" />
+    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017798060" />
     <state x="616" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628761160210" />
     <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623943493399" />
     <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1630415465128">
