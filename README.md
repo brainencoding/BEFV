@@ -2,12 +2,12 @@
 
 To create a validator instance use 
 ```js
-    const instance = new BEFormValidator.Create(formConfig /* declaration bottom */ , [
-        inputConfig1,
-        inputConfig2
-    ]);
-    
-    instance.init();
+const instance = new BEFormValidator.Create(formConfig /* declaration bottom */ , [
+    inputConfig1,
+    inputConfig2
+]);
+
+instance.init();
 ```
 
 [See examples](https://github.com/brainencoding/BEFV/tree/main/example)
@@ -60,7 +60,7 @@ const inputConfig = {
             error: 'Field is required',
             success: 'Field is success required',
         }
-    }
+    },
     rules: {
         required: true,
         // rule: /(.*)/g // can be a regex
@@ -139,6 +139,27 @@ If you use a checkbox, then only the rules: {required: true} fields are availabl
         }
     }
 ```
+
+For add a custom message you need, to set rule in rules object, and call messagePreventDefault function for block render message of message
+
+```js
+{
+  element: field.text,
+  rules: {
+      required: true,
+      rule: function (input, validator) {
+          this.messagePreventDefault(); // for block message render of message.rule object 
+          validator.getElement(input).messages.changeStatus(false, 'Set custom text');
+          return false;
+      }
+  },
+  message: {
+      required: {
+          error: 'Field are required!'
+      }
+  }
+}
+``` 
 
 ----
 ## Example 
@@ -232,7 +253,6 @@ script.js
         }
     })
 })();
-
 ```
 
 ----
