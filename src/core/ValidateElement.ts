@@ -8,20 +8,22 @@ export class ValidateElement implements ValidateElementImpl {
 	public isInit: boolean = false;
 
 	public messages: InputMessage;
+	public element: HTMLInputElement | HTMLTextAreaElement;
 
 	constructor(public opt: AValidateInput, public validator: BEFormValidatorCreateImpl) {
 		const clone = {...constants.DEFAUTL_VALUES.VALIDATION_ELEMENT};
 		this.opt = Object.assign(clone, this.opt);
+		this.element = this.opt.element;
 
-		if (typeof this.opt.element === 'string') {
+		if (typeof this.element === 'string') {
 			// @ts-ignore
-			const gettingElement = document.querySelector(this.opt.element);
+			const gettingElement = document.querySelector(this.element);
 
 			if (gettingElement) {
 				// @ts-ignore
-				this.opt.element = gettingElement;
+				this.element = gettingElement;
 			} else {
-				this.opt.element = undefined;
+				this.element = undefined;
 				console.error(ValidateElement.Error('{ element } is undefined!'));
 			}
 		}
@@ -31,15 +33,14 @@ export class ValidateElement implements ValidateElementImpl {
 		this.isValid = false;
 
 		let res: boolean = false;
+		let stateChecked : boolean;
+		let ruleMessagePreventDefault = false;
 
-		const value = this.opt.element?.value;
-		const isCheckBox = this.opt.element.type === 'checkbox';
-		const stateChecked = this.opt.element.checked
+		const value = this.element?.value;
+		const isCheckBox = this.element.type === 'checkbox';
 		const rules = this.opt.rules;
 		const message = this.opt.message;
-
 		const __conditionForSupportingOnlyBorder__ = (!message.required && !message.rule && message.border)
-
 		const InputMessageOpts = {
 			location: message.location || undefined,
 			noAdjacent: message.noAdjacent || undefined,
@@ -47,16 +48,22 @@ export class ValidateElement implements ValidateElementImpl {
 			noSpan: __conditionForSupportingOnlyBorder__,
 		}
 
+		if ("checked" in this.element) {
+			stateChecked = this.element.checked
+		}
+
 		if (!this.messages) {
-			this.messages = new InputMessage(' ', this.opt.element, InputMessageOpts);
+			this.messages = new InputMessage(' ', this.element, InputMessageOpts);
 		}
 
 		if (rules.hasOwnProperty('required') && rules.required) {
-			let valCond = isCheckBox ? stateChecked : !!value;
+			let valCond = isCheckBox ? !!stateChecked : !!value;
+
+			const _status = valCond ? 'success' : 'error';
 
 			this.messages.changeStatus(valCond,
 				message && message.required ?
-					message?.required[valCond ? 'success' : 'error'] :
+					message?.required.hasOwnProperty(_status) && message.required[_status] :
 					__conditionForSupportingOnlyBorder__ ? '' : ''
 			);
 
@@ -66,49 +73,55 @@ export class ValidateElement implements ValidateElementImpl {
 			}
 		}
 
+		const additionalFunctionContextProps: Record<any, any> = {
+			messagePreventDefault: SetRuleMessagePreventDefault
+		}
+
 		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
 			const rule: TRule = rules.rule;
 
-			const validateDefaultRule = (_rule: TRule): boolean => {
-				switch (_rule.constructor) {
+			const validateDefaultRule = (innerRule: TRule): boolean => {
+				switch (innerRule.constructor) {
 					case RegExp: {
-						return (<RegExp>_rule).test(value.toString());
+						return (<RegExp>innerRule).test(value.toString());
 					}
 
 					case Function: {
-						return (<Function>_rule).call(this, this.opt.element, this.validator);
+						return (<Function>innerRule).call({ ...this, ...additionalFunctionContextProps}, this.element, this.validator);
 					}
 
 					case Array: {
-						const _rule = (<Array<RegExp | Function>>rule);
+						const typedRule = (<Array<RegExp | Function>>rule);
 						let localRes = false;
 
-						if (_rule.length) {
-							for (const r of _rule) {
-								const cond: boolean = validateDefaultRule(r);
+						if (typedRule.length) {
+							for (const typedRuleElement of typedRule) {
+								const cond: boolean = validateDefaultRule(typedRuleElement);
 								localRes = cond;
 								if (!cond) {
 									break;
 								}
 							}
 						} else {
-							console.error(ValidateElement.Error('rule of array [] is empty.', this.opt.element.className));;
+							console.error(ValidateElement.Error('rule of array [] is empty.', this.element.className));;
 						}
 
 						return localRes
 					}
 
 					default: {
-						throw ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.opt.element.className);
+						throw ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.element.className);
 					}
 				}
 			}
 
 			res = validateDefaultRule(rule);
 
-			this.messages.changeStatus(res,
-				!res ? message.rule['error'] || '' : res ? message.rule['success'] || '' : ''
-			);
+			if (!ruleMessagePreventDefault) {
+				this.messages.changeStatus(res,
+					!res ? message?.rule?.error || '' : res ? message?.rule?.success || '' : ''
+				);
+			}
 
 			if (!res) {
 				this.opt.subscriptions.invalid();
@@ -118,6 +131,10 @@ export class ValidateElement implements ValidateElementImpl {
 
 		this.opt.subscriptions.valid(this);
 		this.isValid = true;
+
+		function SetRuleMessagePreventDefault(): void {
+			ruleMessagePreventDefault = true;
+		}
 	}
 
 	private elementHandler(e: Event): void {
@@ -131,14 +148,14 @@ export class ValidateElement implements ValidateElementImpl {
 
 	public init(): void {
 		if (!this.isInit && !this.opt.onlyOnSubmit) {
-			this.opt.element.addEventListener('input', this.elementHandler.bind(this));
+			this.element.addEventListener('input', this.elementHandler.bind(this));
 		}
 
 		this.isInit = true;
 	}
 
 	public isCorrect(): boolean {
-		if (!this.opt.element) {
+		if (!this.element) {
 			console.error(ValidateElement.Error('{ element } is undefined!'));
 			return false;
 		}
@@ -157,7 +174,7 @@ export class ValidateElement implements ValidateElementImpl {
 		}
 
 		if (this.isInit) {
-			this.opt.element.removeEventListener('input', this.elementHandler.bind(this));
+			this.element.removeEventListener('input', this.elementHandler.bind(this));
 
 			if (this.messages && this.messages.remove) {
 				this.messages.remove();

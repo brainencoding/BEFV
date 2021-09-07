@@ -8,6 +8,7 @@
                 email: form.querySelector('#email'),
                 message: form.querySelector('#message'),
                 check: form.querySelector('#check'),
+                file: form.querySelector('#file'),
             }
 
             const inputs = [
@@ -51,7 +52,23 @@
                 {
                     element: field.check,
                     rules: {
-                        required: true
+                        required: true,
+                    },
+                    message: {
+                        required: {
+                            error: 'Field are required!'
+                        }
+                    }
+                },
+                {
+                    element: field.file,
+                    rules: {
+                        required: true,
+                        rule: function (input, validator) {
+                            this.messagePreventDefault();
+                            validator.getElement(input).messages.changeStatus(false, 'Test text for not valid')
+                            return false
+                        }
                     },
                     message: {
                         required: {

@@ -1,4 +1,5 @@
 import EventEmitter from "./core/EventEmitter";
+import {ValidateElement} from "./core/ValidateElement";
 
 export {};
 
@@ -11,6 +12,7 @@ declare global {
 export interface BEFormValidatorCreateImpl {
 	form: AValidateForm;
 	isFormValid: boolean;
+	getElement(input: HTMLInputElement | HTMLTextAreaElement): ValidateElement;
 	emitter: EventEmitter;
 	init(): void;
 	uid: string;
@@ -27,6 +29,8 @@ export interface InputMessageImpl {
 export interface ValidateElementImpl {
 	isValid: boolean;
 	isInit: boolean;
+	messagePreventDefault?: { (): void };
+	element?: HTMLInputElement | HTMLTextAreaElement;
 	messages: InputMessageImpl;
 	validate(): void;
 	init(): void;

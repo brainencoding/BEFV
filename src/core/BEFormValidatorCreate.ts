@@ -13,26 +13,16 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
 	public isFormValid: boolean = false;
 	private __isInit: boolean = false;
-	uid = Date.now().toString() + Math.floor(Math.random() * Date.now()).toString();
-
-	emit(name: string, ...data: any) {
-		this.emitter.emit(this.uid + ' => ' + name, ...data)
-	}
-
-	addListener(name: string, ...callback: Function[]) {
-		this.emitter.addListener(this.uid + ' => ' + name, ...callback)
-	}
+	uid: string = (Date.now().toString() + Math.floor(Math.random() * Date.now())).toString();
 
 	constructor(form: AValidateForm, validateElements: AValidateInput[]) {
 		this.__initialInputs = validateElements;
 		this.form = form;
 
 		if (typeof this.form.element === 'string') {
-			// @ts-ignore
 			const gettingElement = document.querySelector(this.form.element);
 			                                          	
 			if (gettingElement) {
-				// @ts-ignore
 				this.form.element = gettingElement;
 			} else {
 				this.form.element = undefined;
@@ -41,7 +31,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		}
 
 		Object.defineProperty(this.form.element, constants.PACKAGE_NAME_IN_FORM, {
-			value: this
+			value: this,
 		});
 		
 		if (!this.form.hasOwnProperty('subscriptions')) {
@@ -84,6 +74,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			this.form.element.setAttribute(constants.DATASET.VALID, '0');
 			this.form.subscriptions.invalid(this);
 		}
+
 		this.addListener('BEForm::isInvalidForm', Event_isInvalidForm.bind(this));
 
 		function Event_checkInputValidation(beforeValidation: Function = () => { }) {
@@ -129,6 +120,18 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				}
 			}
 		});
+	}
+
+	emit(name: string, ...data: any) {
+		this.emitter.emit(this.uid + ' => ' + name, ...data)
+	}
+
+	addListener(name: string, ...callback: Function[]) {
+		this.emitter.addListener(this.uid + ' => ' + name, ...callback)
+	}
+
+	public getElement(input: HTMLInputElement | HTMLTextAreaElement): ValidateElement {
+		return this.inputs.find(_validateElement => _validateElement.element === input);
 	}
 
 	public init(): void {
