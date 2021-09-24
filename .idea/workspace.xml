@@ -23,13 +23,17 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:BEModule.HTMLObserverValidation" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +52,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1toodAyqcA5hoW7nKgJOFBshupP" />
@@ -101,7 +110,9 @@
       <workItem from="1623608874466" duration="51320000" />
       <workItem from="1623942269806" duration="2817000" />
       <workItem from="1628763373913" duration="216000" />
-      <workItem from="1630413881337" duration="8969000" />
+      <workItem from="1630413881337" duration="9237000" />
+      <workItem from="1632146992701" duration="1793000" />
+      <workItem from="1632151044826" duration="621000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -292,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631017976648</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="chore: update build on prod">
+      <created>1631019207862</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1631019207862</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +327,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="BEModule.HTMLObserverValidation" />
                       </list>
                     </value>
                   </entry>
@@ -323,7 +341,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: obj with constants" />
     <MESSAGE value="upd: Create and wrote Factory Validator" />
     <MESSAGE value="upd: utils" />
     <MESSAGE value="upd: interface for BEFormValidator" />
@@ -348,7 +365,8 @@
     <MESSAGE value="chore: remove console logs" />
     <MESSAGE value="feet: added method which block render message of rule and user can set custom message (see docs README.md)" />
     <MESSAGE value="docs: update(add messagePreventDefault doc)" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
+    <MESSAGE value="chore: update build on prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update build on prod" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
@@ -371,10 +389,14 @@
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1418" y="455" key="GitRewordDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017547295" />
-    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1631018288468">
+    <state x="681" y="296" width="540" height="524" key="StructurePopup" timestamp="1632151569399">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="681" y="296" width="540" height="524" key="StructurePopup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1632151569399" />
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1631019215114">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631019215114" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763555080" />
     <state x="-1246" y="295" width="572" height="534" key="find.popup" timestamp="1631017014244">
       <screen x="-1920" y="30" width="1920" height="1050" />

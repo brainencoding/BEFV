@@ -3,6 +3,7 @@ import {BEFormValidatorCreate} from "./core/BEFormValidatorCreate";
 import {constants} from "./constants";
 import {utils} from "./utils";
 import {DefaultRules} from "./core/DefaultRules";
+import {BEModules} from "./modules";
 
 export let BEFormValidator: TBEFormValidator = Object.create({});
 
@@ -23,6 +24,10 @@ class BEFormValidatorModule {
 		Object.defineProperty(BEFormValidator, 'Create', {
 			value: BEFormValidatorCreate
 		});
+
+		Object.defineProperty(BEFormValidator, 'modules', {
+			value: BEModules.getModules(),
+		});
 	}
 
 	static afterLoad(): void {
@@ -38,6 +43,4 @@ function bootstrap() {
 	BEFormValidatorModule.afterLoad();
 }
 
-
 bootstrap();
-
