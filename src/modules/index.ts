@@ -1,9 +1,9 @@
 import {HTMLObserverValidation} from "./HTMLObserverValidation";
 
 export class BEModules {
-    static getModules(): Array<any> {
-        return [
+    static getModules(): Record<any, any> {
+        return {
             HTMLObserverValidation,
-        ]
+        }
     }
 }

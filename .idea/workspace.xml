@@ -29,10 +29,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/BEHelper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/messages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/auth-form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/auth-form/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/HTMLObserverValidation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,11 +83,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrey\Desktop\prjs\BEFV\src\modules\HTMLObserverValidation" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core\components" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BEFV/example/default-form/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -88,8 +97,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -113,6 +122,7 @@
       <workItem from="1630413881337" duration="9237000" />
       <workItem from="1632146992701" duration="1793000" />
       <workItem from="1632151044826" duration="621000" />
+      <workItem from="1635426784825" duration="7535000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -310,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631019207862</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="feet: can create empty rule">
+      <created>1635433513187</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1635433513187</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +358,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: Create and wrote Factory Validator" />
     <MESSAGE value="upd: utils" />
     <MESSAGE value="upd: interface for BEFormValidator" />
     <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
@@ -366,21 +382,14 @@
     <MESSAGE value="feet: added method which block render message of rule and user can set custom message (see docs README.md)" />
     <MESSAGE value="docs: update(add messagePreventDefault doc)" />
     <MESSAGE value="chore: update build on prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: update build on prod" />
+    <MESSAGE value="feet: can create empty rule" />
+    <option name="LAST_COMMIT_MESSAGE" value="feet: can create empty rule" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="-1201" y="357" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1635427651964">
+      <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
-    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1623877639066">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623877639066" />
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623706574468">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
+    <state x="-1201" y="357" key="#com.intellij.fileTypes.FileTypeChooser/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635427651964" />
     <state x="92" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1628763603712">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -403,21 +412,14 @@
     </state>
     <state x="-1246" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017014244" />
     <state x="674" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628762713168" />
-    <state x="674" y="295" width="572" height="534" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623944301983" />
-    <state x="723" y="346" key="git4idea.ui.GitUnstashDialog" timestamp="1623798115465">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="723" y="346" key="git4idea.ui.GitUnstashDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623798115465" />
-    <state x="-1304" y="258" key="run.anything.popup" timestamp="1631017798060">
+    <state x="-1304" y="258" key="run.anything.popup" timestamp="1635433905575">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017798060" />
+    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635433905575" />
     <state x="616" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628761160210" />
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623943493399" />
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1630415465128">
+    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1635428118513">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1630415465128" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623786646977" />
+    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635428118513" />
   </component>
 </project>

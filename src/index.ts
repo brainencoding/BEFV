@@ -4,25 +4,30 @@ import {constants} from "./constants";
 import {utils} from "./utils";
 import {DefaultRules} from "./core/DefaultRules";
 import {BEModules} from "./modules";
+import {BEHelper} from "./core/BEHelper";
 
 export let BEFormValidator: TBEFormValidator = Object.create({});
 
 class BEFormValidatorModule {
 	static load(): void {
 		Object.defineProperty(BEFormValidator, '__constants', {
-			value: constants
+			value: constants,
 		});
 
 		Object.defineProperty(BEFormValidator, '__utils', {
-			value: utils
+			value: utils,
 		});
 		
 		Object.defineProperty(BEFormValidator, 'DefaultRules', {
-			value: DefaultRules
+			value: DefaultRules,
 		});
 
 		Object.defineProperty(BEFormValidator, 'Create', {
-			value: BEFormValidatorCreate
+			value: BEFormValidatorCreate,
+		});
+
+		Object.defineProperty(BEFormValidator, 'BEHelper', {
+			value: BEHelper,
 		});
 
 		Object.defineProperty(BEFormValidator, 'modules', {

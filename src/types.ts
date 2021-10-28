@@ -20,12 +20,6 @@ export interface BEFormValidatorCreateImpl {
 	addListener(name: string, ...callback: Function[]): void;
 }
 
-export interface HTMLObserverValidationImpl {
-	forms: Array<HTMLFormElement>;
-
-	init(): HTMLObserverValidationImpl;
-}
-
 export interface InputMessageImpl {
 	remove(): void;
 	append(): void;
