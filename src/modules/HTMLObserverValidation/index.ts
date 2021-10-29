@@ -1,15 +1,24 @@
-import {HTMLObserverValidationForm, HTMLObserverValidationImpl} from "./types";
+import {HTMLObserverValidationFormImpl, HTMLObserverValidationImpl} from "./types";
 import {Messages} from "./messages";
 import {HTMLOVConstants} from "./constants";
 import {BEHelper} from "../../core/BEHelper";
+import {ObservableObject} from "../../core/components/ObjectObserver";
+import {BEFormValidatorCreate} from "../../core/BEFormValidatorCreate";
+import {BEFormValidatorCreateImpl} from "../../types";
 
 let __LOCAL_INVOKE__ = false;
 
 export class HTMLObserverValidation implements HTMLObserverValidationImpl {
-    forms: HTMLObserverValidationForm[] = []
-    MutationObserverInstance: MutationObserver;
-    $form?: HTMLFormElement;
-    commonForms: HTMLCollectionOf<HTMLFormElement> = document.forms;
+    public forms: Record<any, any> = {};
+    public $form?: HTMLFormElement;
+    public commonForms: HTMLCollectionOf<HTMLFormElement> = document.forms;
+
+    private MutationObserverInstance: MutationObserver;
+    private MutationObserverOptions: MutationObserverInit = {
+        childList: true,
+        attributes: true,
+        subtree: true,
+    }
 
     constructor($form?: HTMLFormElement) {
         if (!__LOCAL_INVOKE__) {
@@ -28,14 +37,14 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
         this.MutationObserverInstance = null;
     }
 
-    checkDefinedForm($form: HTMLFormElement) {
+    public checkDefinedForm($form: HTMLFormElement): boolean {
         const definitionAttr = $form.getAttribute(HTMLOVConstants['KEYWORDS']['DEFINITION']);
         const initializedAttr = $form.getAttribute(HTMLOVConstants['KEYWORDS']['INITIALIZED']);
 
         return definitionAttr !== null && !definitionAttr.length && !initializedAttr;
     }
 
-    getRawForms(): HTMLFormElement[] {
+    public getRawForms(): HTMLFormElement[] {
         let $allForms: HTMLFormElement[] = Array.from(this.commonForms);
         let $rawForms: HTMLFormElement[] = [];
 
@@ -48,7 +57,7 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
         return $rawForms;
     }
 
-    formsProcessing() {
+    public formsProcessing(): void {
         if (this.$form) {
             this.localPreparation(this.$form);
         } else {
@@ -60,14 +69,14 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
         }
     }
 
-    localPreparation($form: HTMLFormElement) {
-        const id = BEHelper.generateId();
+    public localPreparation($form: HTMLFormElement): void {
+        const _id = BEHelper.generateId();
         const formArgs: Record<any, any> = {
             element: $form
         };
         const fields: any[] = [];
 
-        $form.dataset.beDefine = id;
+        $form.dataset.beDefine = _id;
 
         if ($form.dataset.beDefault) {
             formArgs.options.default = $form.dataset.beDefault === 'Y';
@@ -83,9 +92,10 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
             fields.push({
                 element: $field,
                 rules: {
-                    required: $field.dataset.beRequired,
+                    required: $field.dataset.beRequired === 'Y' || false,
                     rule: $field.dataset.beRule || null,
                 },
+                onlyOnSubmit: $field.dataset.beOnlyOnSubmit === 'Y' || false,
                 message: {
                     rule: {
                         error: $field.dataset.beMessageRuleError || '',
@@ -94,36 +104,72 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
                     required: {
                         error: $field.dataset.beMessageRequiredError || '',
                         success: $field.dataset.beMessageRequiredSuccess || '',
-                    }
+                    },
+                    border: $field.dataset.beBorder === 'Y' || false,
                 }
             });
         }
 
-        this.forms.push({
-            id,
-            $form,
-            formArgs,
-            fields
-        });
+        const newForm = new HTMLObserverValidationForm;
+
+        newForm._id = _id;
+        newForm.$form = $form;
+        newForm.formArgs = formArgs;
+        newForm.fields = fields;
+
+        this.forms[_id] = newForm;
     }
 
-    observer() {
+    private mutationCallback$(): void {
+        const isFormsChanged = BEHelper.arrayEquals(this.commonForms, Array.from(document.forms));
 
+        if (isFormsChanged) {
+            this.commonForms = document.forms;
+            this.formsProcessing();
+        }
     }
 
-    init(): HTMLObserverValidation {
+    private formsSetterHandler(): void {
+        const formObjects = Object.values(this.forms).filter((item) => item instanceof HTMLObserverValidationForm && !item.initValidation);
+
+        for (const formEntity of formObjects) {
+            formEntity.ValidatorInstance = new BEFormValidatorCreate(formEntity.formArgs, formEntity.fields);
+
+            formEntity.ValidatorInstance.init();
+            formEntity.initValidation = true;
+        }
+    }
+
+    public init(): HTMLObserverValidation {
+        this.forms = ObservableObject(this.forms);
+        this.forms.observe(this.formsSetterHandler.bind(this));
+
         this.formsProcessing();
 
+        if (window.MutationObserver) {
+            this.MutationObserverInstance = new MutationObserver(this.mutationCallback$.bind(this));
 
+            if (!this.$form) {
+                this.MutationObserverInstance.observe(document.body, this.MutationObserverOptions);
+            }
+        } else {
+            console.warn(Messages.getMessage('MUTATION_OBSERVER_IS_NOT_SUPPORTED'))
+        }
 
         return this;
     }
 
-    static init($form?: HTMLFormElement) {
+    static init($form?: HTMLFormElement): HTMLObserverValidation {
         __LOCAL_INVOKE__ = true;
-        new HTMLObserverValidation($form).init();
+        return new HTMLObserverValidation($form).init();
     }
 }
 
-
-
+class HTMLObserverValidationForm implements HTMLObserverValidationFormImpl {
+    _id: string = null;
+    $form: HTMLElement = null;
+    formArgs: Record<any, any> = null;
+    fields: Record<any, any> = null;
+    initValidation: boolean = false;
+    ValidatorInstance: BEFormValidatorCreateImpl = null;
+}
