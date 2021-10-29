@@ -93,7 +93,7 @@ export class HTMLObserverValidation implements HTMLObserverValidationImpl {
                 element: $field,
                 rules: {
                     required: $field.dataset.beRequired === 'Y' || false,
-                    rule: $field.dataset.beRule || null,
+                    rule: $field.dataset.beRule ? new RegExp(String.raw`${$field.dataset.beRule}`) : null,
                 },
                 onlyOnSubmit: $field.dataset.beOnlyOnSubmit === 'Y' || false,
                 message: {

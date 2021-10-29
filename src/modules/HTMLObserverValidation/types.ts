@@ -1,4 +1,3 @@
-import {TObjectObserver} from "../../core/components/ObjectObserver";
 import {BEFormValidatorCreateImpl} from "../../types";
 
 export interface HTMLObserverValidationImpl {
