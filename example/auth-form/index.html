@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BrainEncoding - Form Validator</title>
 </head>
@@ -13,7 +12,6 @@
     * {
         box-sizing: border-box;
     }
-
     .transparent {
         position: relative;
         max-width: 400px;
@@ -22,7 +20,6 @@
         background-image: url(https://html5book.ru/wp-content/uploads/2017/01/photo-roses.jpg);
         background-size: cover;
     }
-
     .transparent:before {
         content: "";
         position: absolute;
@@ -32,11 +29,9 @@
         bottom: 0;
         background: linear-gradient(to right bottom, rgba(43, 44, 78, .5), rgba(104, 22, 96, .5));
     }
-
     .form-inner {
         position: relative;
     }
-
     .form-inner h3 {
         position: relative;
         margin-top: 0;
@@ -46,7 +41,6 @@
         font-size: 26px;
         text-transform: uppercase;
     }
-
     .form-inner h3:after {
         content: "";
         position: absolute;
@@ -56,7 +50,6 @@
         width: 60px;
         background: #1762EE;
     }
-
     .form-inner label {
         display: block;
         padding-left: 15px;
@@ -65,7 +58,6 @@
         text-transform: uppercase;
         font-size: 14px;
     }
-
     .form-inner input {
         display: block;
         width: 100%;
@@ -78,20 +70,17 @@
         background: rgba(255, 255, 255, .2);
         font-family: 'Roboto', sans-serif;
     }
-
     .form-inner input[type="checkbox"] {
         position: absolute;
         opacity: 0;
     }
-
-    #custom-checkbox + label {
+    #custom-checkbox+label {
         position: relative;
         margin: 20px 0;
         text-transform: none;
         cursor: pointer;
     }
-
-    #custom-checkbox + label:before {
+    #custom-checkbox+label:before {
         content: "";
         display: inline-block;
         width: 20px;
@@ -100,12 +89,10 @@
         vertical-align: text-top;
         background: white;
     }
-
-    #custom-checkbox:checked + label:before {
+    #custom-checkbox:checked+label:before {
         background: #1762EE;
     }
-
-    #custom-checkbox:checked + label:after {
+    #custom-checkbox:checked+label:after {
         content: "";
         position: absolute;
         width: 2px;
@@ -116,7 +103,6 @@
         box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
         transform: rotate(45deg);
     }
-
     .form-inner input[type="submit"] {
         background: #1762EE;
     }
@@ -139,25 +125,18 @@
 
 <center><h1>Example Form Validator #2</h1></center>
 
-<form
-        class="transparent"
-        data-be-define
->
+<form class="transparent js-auth">
+    <div class="errors js-errors"></div>
+
     <div class="form-inner">
         <h3>Sign up</h3>
         <label for="username">Username</label>
-        <input
-                data-be-field
-                data-be-required="Y"
-                data-be-message-required-error="error required"
-                type="text"
-                id="username"
-        >
+        <input type="text" id="username">
         <label for="password">Password</label>
-        <input data-be-field id="password" type="password">
-        <input data-be-field type="checkbox" id="custom-checkbox">
+        <input id="password" type="password">
+        <input type="checkbox" id="custom-checkbox">
         <label for="custom-checkbox">Remember me</label>
-        <input data-be-field type="submit" value="send">
+        <input type="submit" value="send">
     </div>
 </form>
 
