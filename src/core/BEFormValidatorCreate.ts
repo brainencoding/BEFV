@@ -5,7 +5,7 @@ import {ValidateElement} from "./ValidateElement";
 import {constants} from "../constants";
 
 export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
-	private readonly __initialInputs: AValidateInput[];
+	private __initialInputs: AValidateInput[];
 	private inputs: ValidateElement[] = [];
 	public form: AValidateForm = constants.DEFAUTL_VALUES.VALIDATOR;
 
@@ -122,6 +122,29 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 		});
 	}
 
+	private inputsTreatment() {
+		const inputsResult: AValidateInput[] = [];
+
+		for (let i = 0; i < this.__initialInputs.length; i++) {
+			if (this.__initialInputs[i].element instanceof NodeList) {
+				const commonOptions: AValidateInput = { ...this.__initialInputs[i] };
+				// @ts-ignore
+				const elements = Array.from(this.__initialInputs[i].element);
+				this.__initialInputs.splice(i, 1);
+
+				for (const element of elements) {
+					// @ts-ignore
+					commonOptions['element'] = element;
+					inputsResult.push({ ...commonOptions });
+				}
+			} else {
+				inputsResult.push(this.__initialInputs[i])
+			}
+		}
+
+		this.__initialInputs = inputsResult;
+	}
+
 	emit(name: string, ...data: any) {
 		this.emitter.emit(this.uid + ' => ' + name, ...data)
 	}
@@ -147,6 +170,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
 		try {
 			this.validatorOptionsChecker();
+			this.inputsTreatment();
 
 			this.form.element.setAttribute(constants.DATASET.VALID, '0');
 

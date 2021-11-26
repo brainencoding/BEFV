@@ -184,7 +184,7 @@ script.js
 
         if (form) {
             const field = {
-                name: form.querySelector('#name'),
+                name: form.querySelectorAll('.name'),
                 email: form.querySelector('#email'),
                 message: form.querySelector('#message'),
                 check: form.querySelector('#check'),

@@ -30,6 +30,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/default-form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/default-form/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,22 +356,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="233" key="#Inspections" timestamp="1623699917126">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="586" y="233" key="#Inspections/0.30.1920.1050@0.30.1920.1050" timestamp="1623699917126" />
-    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1623877639066">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="601" y="322" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623877639066" />
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1623706574468">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="765" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1623706574468" />
-    <state x="92" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1628763603712">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="92" y="122" width="1736" height="866" key="DiffContextDialog/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763603712" />
     <state x="-1418" y="455" key="GitRewordDialog" timestamp="1631017547295">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
@@ -375,27 +364,19 @@
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763555080" />
-    <state x="-1246" y="295" width="572" height="534" key="find.popup" timestamp="1631017014244">
-      <screen x="-1920" y="30" width="1920" height="1050" />
+    <state x="2594" y="295" width="572" height="534" key="find.popup" timestamp="1637915158464">
+      <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1246" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017014244" />
-    <state x="674" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628762713168" />
-    <state x="674" y="295" width="572" height="534" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623944301983" />
-    <state x="723" y="346" key="git4idea.ui.GitUnstashDialog" timestamp="1623798115465">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="723" y="346" key="git4idea.ui.GitUnstashDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1623798115465" />
-    <state x="-1304" y="258" key="run.anything.popup" timestamp="1631017798060">
-      <screen x="-1920" y="30" width="1920" height="1050" />
+    <state x="2594" y="295" width="572" height="534" key="find.popup/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637915158464" />
+    <state x="2536" y="258" key="run.anything.popup" timestamp="1637915072620">
+      <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017798060" />
-    <state x="616" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628761160210" />
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623943493399" />
+    <state x="2536" y="258" key="run.anything.popup/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637915072620" />
     <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1630415465128">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1630415465128" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1623786646977" />
   </component>
 </project>
