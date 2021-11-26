@@ -1,4 +1,4 @@
-# BEFV (BrainEncoding-form-validator) -  Vanilla javascript form validation library
+# BEFV -  Vanilla javascript form validation library
 
 To create a validator instance use 
 ```js
