@@ -23,18 +23,18 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:BEModule.HTMLObserverValidation" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/auth-form[HTMLObserverValidation]/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/auth-form[HTMLObserverValidation]/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/default-form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/default-form/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/HTMLObserverValidation/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +53,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1toodAyqcA5hoW7nKgJOFBshupP" />
@@ -70,26 +65,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\Andrey\Desktop\prjs\BEFV\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Andrey\Desktop\prjs\BEFV\example" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Andrey\Desktop\prjs\BEFV\src\modules\HTMLObserverValidation" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core\components" />
       <recent name="C:\Users\user\Desktop\Projects\BE-form-validator\src\core" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (2)">
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
     <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BEFV/example/default-form/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BEFV/example/auth-form[HTMLObserverValidation]/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BEFV/example/auth-form/index.html" useBuiltInWebServerPort="true">
@@ -97,9 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.index.html (2)" />
-        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -120,12 +106,7 @@
       <workItem from="1623608874466" duration="51320000" />
       <workItem from="1623942269806" duration="2817000" />
       <workItem from="1628763373913" duration="216000" />
-      <workItem from="1630413881337" duration="9237000" />
-      <workItem from="1632146992701" duration="1793000" />
-      <workItem from="1632151044826" duration="621000" />
-      <workItem from="1635426784825" duration="7807000" />
-      <workItem from="1635491404478" duration="342000" />
-      <workItem from="1635492171822" duration="13093000" />
+      <workItem from="1630413881337" duration="8969000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -316,77 +297,11 @@
       <option name="project" value="LOCAL" />
       <updated>1631017976648</updated>
     </task>
-    <task id="LOCAL-00028" summary="chore: update build on prod">
-      <created>1631019207862</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1631019207862</updated>
-    </task>
-    <task id="LOCAL-00029" summary="feet: can create empty rule">
-      <created>1635433513187</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1635433513187</updated>
-    </task>
-    <task id="LOCAL-00030" summary="chore: need add observer">
-      <created>1635434635800</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1635434635800</updated>
-    </task>
-    <task id="LOCAL-00031" summary="chore: copy arrayEquals method of BEUtils">
-      <created>1635510136287</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1635510136287</updated>
-    </task>
-    <task id="LOCAL-00032" summary="feet: add ObservableObject component">
-      <created>1635510165715</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1635510165715</updated>
-    </task>
-    <task id="LOCAL-00033" summary="feet: added initialization Validator">
-      <created>1635510318566</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1635510318566</updated>
-    </task>
-    <task id="LOCAL-00034" summary="chore: return example working">
-      <created>1635510395732</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1635510395732</updated>
-    </task>
-    <task id="LOCAL-00035" summary="chore: example for new Module">
-      <created>1635511499477</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1635511499477</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -399,7 +314,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="BEModule.HTMLObserverValidation" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -413,6 +328,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="upd: obj with constants" />
+    <MESSAGE value="upd: Create and wrote Factory Validator" />
+    <MESSAGE value="upd: utils" />
+    <MESSAGE value="upd: interface for BEFormValidator" />
+    <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
+    <MESSAGE value="feet: Add class for append/remove error/success message under input" />
+    <MESSAGE value="feet: ADD REQUIRED RULE TO VALIDATOR METHOD" />
+    <MESSAGE value="upd: correct checking required" />
+    <MESSAGE value="upd: apply reinit Creator when update configuration" />
     <MESSAGE value="upd: minify condition for change status in input message" />
     <MESSAGE value="feet: ADD SUPPROTING CUSTORM RULE" />
     <MESSAGE value="feet: ADD SUPPROTING input bordering" />
@@ -429,61 +353,30 @@
     <MESSAGE value="chore: remove console logs" />
     <MESSAGE value="feet: added method which block render message of rule and user can set custom message (see docs README.md)" />
     <MESSAGE value="docs: update(add messagePreventDefault doc)" />
-    <MESSAGE value="chore: update build on prod" />
-    <MESSAGE value="feet: can create empty rule" />
-    <MESSAGE value="chore: need add observer" />
-    <MESSAGE value="chore: copy arrayEquals method of BEUtils" />
-    <MESSAGE value="feet: add ObservableObject component" />
-    <MESSAGE value="feet: added initialization Validator" />
-    <MESSAGE value="chore: return example working" />
-    <MESSAGE value="chore: example new Module" />
-    <MESSAGE value="chore: example for new Module" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: example for new Module" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1368" y="213" width="816" height="729" key="#Intentions" timestamp="1635504404404">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1368" y="213" width="816" height="729" key="#Intentions/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635504404404" />
-    <state x="-1201" y="357" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1635427651964">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1201" y="357" key="#com.intellij.fileTypes.FileTypeChooser/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635427651964" />
-    <state x="-1155" y="271" key="#com.intellij.ide.util.MemberChooser" timestamp="1635507058560">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1155" y="271" key="#com.intellij.ide.util.MemberChooser/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635507058560" />
-    <state x="-1828" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1635510434195">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1828" y="122" width="1736" height="866" key="DiffContextDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635510434195" />
-    <state x="92" y="122" width="1736" height="866" key="DiffContextDialog/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763603712" />
     <state x="-1418" y="455" key="GitRewordDialog" timestamp="1631017547295">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1418" y="455" key="GitRewordDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017547295" />
-    <state x="681" y="296" width="540" height="524" key="StructurePopup" timestamp="1632151569399">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="681" y="296" width="540" height="524" key="StructurePopup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1632151569399" />
-    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1635434660214">
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1631018288468">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635434660214" />
-    <state x="552" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628763555080" />
-    <state x="-1246" y="295" width="572" height="534" key="find.popup" timestamp="1631017014244">
-      <screen x="-1920" y="30" width="1920" height="1050" />
+    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
+    <state x="2594" y="295" width="572" height="534" key="find.popup" timestamp="1637915158464">
+      <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1246" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017014244" />
-    <state x="674" y="295" width="572" height="534" key="find.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628762713168" />
-    <state x="-1304" y="258" key="run.anything.popup" timestamp="1635433905575">
+    <state x="2594" y="295" width="572" height="534" key="find.popup/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637915158464" />
+    <state x="2536" y="258" key="run.anything.popup" timestamp="1637915072620">
+      <screen x="1920" y="30" width="1920" height="1050" />
+    </state>
+    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017798060" />
+    <state x="2536" y="258" key="run.anything.popup/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637915072620" />
+    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1630415465128">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
-    <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635433905575" />
-    <state x="616" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@0.30.1920.1050" timestamp="1628761160210" />
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1635428118513">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1635428118513" />
+    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1630415465128" />
   </component>
 </project>

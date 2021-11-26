@@ -1,4 +1,4 @@
-# BEFV (BrainEncoding-form-validator) -  Vanilla javascript form validation library
+# BEFV -  Vanilla javascript form validation library
 
 To create a validator instance use 
 ```js
@@ -184,7 +184,7 @@ script.js
 
         if (form) {
             const field = {
-                name: form.querySelector('#name'),
+                name: form.querySelectorAll('.name'),
                 email: form.querySelector('#email'),
                 message: form.querySelector('#message'),
                 check: form.querySelector('#check'),
