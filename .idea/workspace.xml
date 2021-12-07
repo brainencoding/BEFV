@@ -23,19 +23,12 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:BEModule.HTMLObserverValidation" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/default-form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/default-form/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/default-form/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -314,7 +307,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="BEModule.HTMLObserverValidation" />
                       </list>
                     </value>
                   </entry>
@@ -356,14 +349,19 @@
     <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2012" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1637918843355">
+      <screen x="1920" y="30" width="1920" height="1050" />
+    </state>
+    <state x="2012" y="122" width="1736" height="866" key="DiffContextDialog/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637918843355" />
     <state x="-1418" y="455" key="GitRewordDialog" timestamp="1631017547295">
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1418" y="455" key="GitRewordDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017547295" />
-    <state x="-1368" y="288" key="Vcs.Push.Dialog.v2" timestamp="1631018288468">
-      <screen x="-1920" y="30" width="1920" height="1050" />
+    <state x="2472" y="288" key="Vcs.Push.Dialog.v2" timestamp="1637918772866">
+      <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
+    <state x="2472" y="288" key="Vcs.Push.Dialog.v2/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637918772866" />
     <state x="2594" y="295" width="572" height="534" key="find.popup" timestamp="1637915158464">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
