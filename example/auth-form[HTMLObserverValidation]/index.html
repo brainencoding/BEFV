@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BrainEncoding - Form Validator</title>
+</head>
+<body>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .transparent {
+        position: relative;
+        max-width: 400px;
+        padding: 60px 50px;
+        margin: 50px auto 0;
+        background-image: url(https://html5book.ru/wp-content/uploads/2017/01/photo-roses.jpg);
+        background-size: cover;
+    }
+
+    .transparent:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right bottom, rgba(43, 44, 78, .5), rgba(104, 22, 96, .5));
+    }
+
+    .form-inner {
+        position: relative;
+    }
+
+    .form-inner h3 {
+        position: relative;
+        margin-top: 0;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 26px;
+        text-transform: uppercase;
+    }
+
+    .form-inner h3:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        height: 2px;
+        width: 60px;
+        background: #1762EE;
+    }
+
+    .form-inner label {
+        display: block;
+        padding-left: 15px;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(255, 255, 255, .6);
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .form-inner input {
+        display: block;
+        width: 100%;
+        padding: 0 15px;
+        margin: 10px 0 15px;
+        border-width: 0;
+        line-height: 40px;
+        border-radius: 20px;
+        color: white;
+        background: rgba(255, 255, 255, .2);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .form-inner input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    #custom-checkbox + label {
+        position: relative;
+        margin: 20px 0;
+        text-transform: none;
+        cursor: pointer;
+    }
+
+    #custom-checkbox + label:before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: text-top;
+        background: white;
+    }
+
+    #custom-checkbox:checked + label:before {
+        background: #1762EE;
+    }
+
+    #custom-checkbox:checked + label:after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        left: 20px;
+        top: 9px;
+        background: white;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        transform: rotate(45deg);
+    }
+
+    .form-inner input[type="submit"] {
+        background: #1762EE;
+    }
+
+    .errors .be-error-message {
+        color: crimson;
+        font-size: 14px;
+        display: block;
+    }
+
+    .errors {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+    }
+</style>
+
+<center><h1>Example Form Validator #[HTMLObserverValidation]</h1></center>
+
+<form
+        class="transparent"
+        data-be-define
+>
+    <div class="form-inner">
+        <h3>Sign up</h3>
+        <label for="username">Username</label>
+        <input
+                data-be-field
+                data-be-required="Y"
+                data-be-rule="1"
+                data-be-message-required-error="error required"
+                data-be-message-rule-error="error rule"
+                type="text"
+                id="username"
+        >
+        <label for="password">Password</label>
+        <input data-be-field data-be-required="Y" data-be-message-required-error="error required" id="password" type="password">
+        <input data-be-field data-be-required="Y" data-be-message-required-error="error required" type="checkbox" id="custom-checkbox">
+        <label data-be-field data-be-required="Y" data-be-message-required-error="error required" for="custom-checkbox">Remember me</label>
+        <input data-be-field data-be-required="Y" data-be-message-required-error="error required" type="submit" value="send">
+    </div>
+</form>
+
+<center><br><br><small>© by BrainEncoding</small></center>
+
+<script src="../../lib/BEFV.min.js"></script>
+<script>
+  BEFormValidator.modules.HTMLObserverValidation.init();
+</script>
+</body>
+</html>

@@ -81,6 +81,10 @@ export class ValidateElement implements ValidateElementImpl {
 			const rule: TRule = rules.rule;
 
 			const validateDefaultRule = (innerRule: TRule): boolean => {
+				if (innerRule === null) {
+					return true;
+				}
+
 				switch (innerRule.constructor) {
 					case RegExp: {
 						return (<RegExp>innerRule).test(value.toString());
