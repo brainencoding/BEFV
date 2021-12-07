@@ -115,7 +115,11 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 					this.form.element.submit();
 				}
 
-				if (this.form.handlers.hasOwnProperty('submit') && this.form.handlers.submit instanceof Function) {
+				if (
+					this.form.handlers &&
+					this.form.handlers.hasOwnProperty('submit') &&
+					this.form.handlers.submit instanceof Function
+				) {
 					this.form.handlers.submit(e);
 				}
 			}
