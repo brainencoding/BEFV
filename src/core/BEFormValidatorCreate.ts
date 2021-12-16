@@ -107,7 +107,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 	}
 
 	private formSubmitHandler(e: Event): void {
-		e.preventDefault();
+		if (this.form.options?.default === false) {
+			e.preventDefault();
+		}
 
 		this.emit('BEForm::checkInputValidation', () => {
 			if (this.isFormValid) {
@@ -122,6 +124,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 				) {
 					this.form.handlers.submit(e);
 				}
+			} else {
+				e.preventDefault();
+				e.stopPropagation();
 			}
 		});
 	}
