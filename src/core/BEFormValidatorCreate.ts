@@ -30,10 +30,9 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 			}
 		}
 
-		Object.defineProperty(this.form.element, constants.PACKAGE_NAME_IN_FORM, {
-			value: this,
-		});
-		
+		// @ts-ignore
+		this.form.element[constants.PACKAGE_NAME_IN_FORM] = this;
+
 		if (!this.form.hasOwnProperty('subscriptions')) {
 			this.form.subscriptions = {
 				valid: () => { },
@@ -113,10 +112,6 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
 		this.emit('BEForm::checkInputValidation', () => {
 			if (this.isFormValid) {
-				if (this.form.options?.default) {
-					this.form.element.submit();
-				}
-
 				if (
 					this.form.handlers &&
 					this.form.handlers.hasOwnProperty('submit') &&

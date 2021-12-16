@@ -28,11 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BEFV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BEFV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/BEFormValidatorCreate.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8b65f411-56cc-415b-90da-a43e4d446e09" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +100,12 @@
       <workItem from="1623942269806" duration="2817000" />
       <workItem from="1628763373913" duration="216000" />
       <workItem from="1630413881337" duration="8969000" />
-      <workItem from="1639649704581" duration="512000" />
+      <workItem from="1639649704581" duration="632000" />
+      <workItem from="1639650898718" duration="147000" />
+      <workItem from="1639651057742" duration="6000" />
+      <workItem from="1639651486411" duration="107000" />
+      <workItem from="1639651759008" duration="343000" />
+      <workItem from="1639652458773" duration="94000" />
     </task>
     <task id="LOCAL-00001" summary="chore: init project">
       <created>1623700084511</created>
@@ -295,7 +296,49 @@
       <option name="project" value="LOCAL" />
       <updated>1631017976648</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="chore: fix events form">
+      <created>1639650314494</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1639650314494</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chore: disable init if is was initialized">
+      <created>1639650996005</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1639650996005</updated>
+    </task>
+    <task id="LOCAL-00030" summary="chore: disable init if is was initialized">
+      <created>1639651037248</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1639651037248</updated>
+    </task>
+    <task id="LOCAL-00031" summary="chore: disable init if is was initialized">
+      <created>1639651564044</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1639651564044</updated>
+    </task>
+    <task id="LOCAL-00032" summary="chore: disable init if is was initialized">
+      <created>1639652066033</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1639652066033</updated>
+    </task>
+    <task id="LOCAL-00033" summary="chore: disable init if is was initialized">
+      <created>1639652518442</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1639652518442</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +355,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="BEModule.HTMLObserverValidation" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -326,9 +369,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upd: obj with constants" />
-    <MESSAGE value="upd: Create and wrote Factory Validator" />
-    <MESSAGE value="upd: utils" />
     <MESSAGE value="upd: interface for BEFormValidator" />
     <MESSAGE value="upd: add bubling for form listener of BEFVCreate working firstly" />
     <MESSAGE value="feet: Add class for append/remove error/success message under input" />
@@ -351,7 +391,10 @@
     <MESSAGE value="chore: remove console logs" />
     <MESSAGE value="feet: added method which block render message of rule and user can set custom message (see docs README.md)" />
     <MESSAGE value="docs: update(add messagePreventDefault doc)" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: update(add messagePreventDefault doc)" />
+    <MESSAGE value="chore: fix events form" />
+    <MESSAGE value="chore: disable init if is was inited" />
+    <MESSAGE value="chore: disable init if is was initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: disable init if is was initialized" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2012" y="122" width="1736" height="866" key="DiffContextDialog" timestamp="1637918843355">
@@ -362,11 +405,11 @@
       <screen x="-1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1418" y="455" key="GitRewordDialog/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017547295" />
-    <state x="2472" y="288" key="Vcs.Push.Dialog.v2" timestamp="1637918772866">
+    <state x="2472" y="288" key="Vcs.Push.Dialog.v2" timestamp="1639652545658">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="-1368" y="288" key="Vcs.Push.Dialog.v2/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631018288468" />
-    <state x="2472" y="288" key="Vcs.Push.Dialog.v2/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637918772866" />
+    <state x="2472" y="288" key="Vcs.Push.Dialog.v2/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1639652545658" />
     <state x="2594" y="295" width="572" height="534" key="find.popup" timestamp="1637915158464">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
@@ -377,9 +420,5 @@
     </state>
     <state x="-1304" y="258" key="run.anything.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1631017798060" />
     <state x="2536" y="258" key="run.anything.popup/1920.30.1920.1050/0.30.1920.1050@1920.30.1920.1050" timestamp="1637915072620" />
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1630415465128">
-      <screen x="-1920" y="30" width="1920" height="1050" />
-    </state>
-    <state x="-1297" y="257" width="672" height="678" key="search.everywhere.popup/-1920.30.1920.1050/0.30.1920.1050@-1920.30.1920.1050" timestamp="1630415465128" />
   </component>
 </project>
