@@ -2,7 +2,7 @@ export const DefaultRules = Object.create({});
 
 DefaultRules.phone = {};
 
-DefaultRules.phone.ru = /^((\+7|7|8)+([0-9]){10})$/i;
+DefaultRules.phone.ru = /^((\+7|7|8)+([0-9]){10})$((\+7|7|8)+([0-9]){10})/;
 
 /**
  *  General Email Regex (RFC 5322 Official Standard)
