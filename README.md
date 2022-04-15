@@ -1,102 +1,79 @@
-# BEFV -  Vanilla javascript form validation library
+# Form Validator <sup>BrainEncoding</sup>
 
-To create a validator instance use 
+## Docs
+### Example steps for creating sample validation
+1. Copy BEFV.min.js file from lib directory into your project and plug it in
+2. Create form config object [See available props](#available_props_form_config)
 ```js
-const instance = new BEFormValidator.Create(formConfig /* declaration bottom */ , [
-    inputConfig1,
-    inputConfig2
-]);
-
-instance.init();
-```
-
-[See examples](https://github.com/brainencoding/BEFV/tree/main/example)
-
-## Form configuration
-```js
-const formConfig = {
-    element: 'form', // Form element, can be as string for get element or HTMLFormElement
-
-    options: {
-        default: true // - if you need a standard form submission, then set the default flag to true
-    },
-
-    earlyInputInitiation: true, // early initiation input validation (when init form)
-
-    // use very carefully
-    subscribeOnInput: true, // basicly subscriptions work on submit, if this param is true, subcriptions like (valid, and invalid) is calling when you fill the input or etc...
-
-    handlers: {
-        submit(event) {
-            console.log(event) // Event Listener - Submit
+    const formConfig = Object.create({
+        element: document.querySelector('.my-validated-form'),
+        handlers: {
+            submit()
+            {
+                console.log('Is submit form handler')
+            }
         }
-    },
-
-    subscriptions: {
-        valid(validator) {
-            console.log('Form is valid')
+    });
+```
+3. Create array of input config [See available props](#available_props_input_config)
+```js
+const inputConfig = [
+    {
+        element: '.input',
+        message: {
+            rule: {
+                error: 'Error with rule',
+                success: 'Success rule',
+            },
+            required: {
+                error: 'Field is required',
+                success: 'Field is success required',
+            }
         },
-        invalid(validator) {
-            console.log('Form is invalid')
-        }    
-    }       
-}
-```
-#### Attention: 
-- **do not use regex with flag /.../gm if you don use textarea**
-
-----
-## Element[input] configuration
-If you use select or input with any types, then this config will suit you
-```js
-const inputConfig = {
-    element: '.input',
-    message: { // non required
-        rule: {
-            error: 'Error with rule',
-            success: 'Success rule',
+        rules: {
+            required: true,
+            rule: function ({value}, validator) { 
+                return !!value.match('.');
+            }
         },
-        required: {
-            error: 'Field is required',
-            success: 'Field is success required',
-        }
-    },
-    rules: {
-        required: true,
-        // rule: /(.*)/g // can be a regex
-        // rule: function (value, validator) { // can be a function 
-             // this is current input validator
-        //}
-        // rule: [/(\d+)/, ({value}) => value === 1] // can be an array of regex or function 
-    },
-}
-```
-
-if you need input handler, use
-```js
-    ...element: '.input'
-    handlers: {
-        input(e) {
-            console.log('validate input event: ', e)
-        }
-    },
-```
-
-
-if you need subscribe to input validation change, use: 
-```js
-    ...element: '.input'
-    subscriptions: {
-        valid(validatorElement) {
-            console.log('input is valid')
-        },
-        invalid(validatorElement) {
-            console.log('input is invalid')
-        }
     }
+]
+```
+4. Create validation instance
+```js
+    const MyFormValidator = new BEFormValidator.Create(formConfig, inputConfig);
+```
+5. Initialize validator
+```js
+    MyFormValidator.init();
 ```
 
-If you need to put errors elsewhere, use:
+### [See more example](https://github.com/brainencoding/BEFV/tree/main/example)
+
+## Types
+<a name="available_props_input_config"></a>
+### Available props intput config
+| Name                             | Type                 | Default                        | Description                                                                                                                                |
+| -------------------------------- | -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `element`                    | `HTMLFormElement` or `string` | <b>REQUIRED</b>                    |  Validated input of form class name or HTMLFormElement
+| `rules`                    | `object` | <b>REQUIRED</b>                    |  input validation rules
+| `rules.required`                    | `bool` | `false`                    |  rule for filed to be required
+| `rules.rule`                    | `RegExp` or `Function(input, validator)` or `Array<RegExp or Function>` | `undefined`                    |  rule decalration <br /><br /> 
+| `onlyOnSubmit`                    | `bool` | `false`                    |  If you need validate input only on submit form, use onlyOnSubmit: true
+| `subscriptions`                    | `object` | `undefined`                    |  input validation messages
+| `subscriptions.valid`                    | `function` | `undefined`                    |  validation event handler 
+| `subscriptions.invalid`                    | `function` | `undefined`                    |  validation event handler 
+| `handlers`                    | `object` | `undefined`                    |  input validation messages
+| `handlers.input`                    | `function` | `undefined`                    |  input event handler 
+| `message`                    | `object` | `undefined`                    |  input validation messages
+| `message.border`                    | `bool` | `false`                    |  bordering your input when is valid/invalid use field border: true in message
+| `message.rule`                    | `object` | `undefined`                    |  input validation messages for rule
+| `message.rule.error`                    | `string` | `undefined`                    |  input validation messages for rule error
+| `message.rule.success`                    | `string` | `undefined`                    |  input validation messages for rule success
+| `message.required.error`                    | `string` | `undefined`                    |  input validation messages for required error
+| `message.required.success`                    | `string` | `undefined`                    |  input validation messages for required success
+
+#### If you need to put errors elsewhere, use:
 ```js
     ...
     message: {  
@@ -106,25 +83,7 @@ If you need to put errors elsewhere, use:
     ...
 ```
 
-If you need bordering your input when is valid/invalid use field border: true in message
-```js
-    ...
-    message: {  
-     border: true,
-    },
-    ...
-```
-
-If you need validate input only on submit form, use onlyOnSubmit: true
-```js
-{
-    element: '.input',
-    onlyOnSubmit: true,
-    ...
-}
-```
-
-If you use a checkbox, then only the rules: {required: true} fields are available to you and only message: {required: {error: 'error', success: 'success'}} is available for displaying messages, but the location and noAdjacent.
+#### If you use a checkbox, then only the rules: {required: true} fields are available to you and only message: {required: {error: 'error', success: 'success'}} is available for displaying messages, but the location and noAdjacent.
 ```js
     {                          
         element: '.checkbox-input',
@@ -140,135 +99,49 @@ If you use a checkbox, then only the rules: {required: true} fields are availabl
     }
 ```
 
+### Custom rule messages
 For add a custom message you need, to set rule in rules object, and call messagePreventDefault function for block render message of message
-
+#### Example
 ```js
-{
-  element: field.text,
-  rules: {
-      required: true,
-      rule: function (input, validator) {
-          this.messagePreventDefault(); // for block message render of message.rule object 
-          validator.getElement(input).messages.changeStatus(false, 'Set custom text');
-          return false;
-      }
-  },
-  message: {
-      required: {
-          error: 'Field are required!'
-      }
-  }
-}
-``` 
-
-----
-## Example 
-```html
-<form action="/" method="POST" class="postcard js-postcard">
-  <input type="text" id="name">
-  <input type="text" id="email">
-  <textarea rows="5" id="message"></textarea>
-  <input type="checkbox" id="check">
-  
-  <input type="submit" value="Send message">
-</form>
-
-<script src="../BEFV.min.js"></script>
-<script src="script.js"></script>
-```
-script.js
-```js
-;(() => {
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.querySelector('.js-postcard');
-
-        if (form) {
-            const field = {
-                name: form.querySelectorAll('.name'),
-                email: form.querySelector('#email'),
-                message: form.querySelector('#message'),
-                check: form.querySelector('#check'),
-            }
-
-            const inputs = [
-                {
-                    element: field.name,
-                    rules: {
-                        required: true
-                    },
-                    message: {
-                        required: {
-                            error: 'Field are required!'
-                        }
+    {
+        element: field.text,
+            
+        rules: {
+                required: true,
+                rule: function (input, validator) {
+                    this.messagePreventDefault(); // for block message render of message.rule object 
+                
+                    if (!input.value.length) {
+                        validator.getElement(input).messages.changeStatus(false, 'Set custom text');
+                        return false;
                     }
-                },
-                {
-                    element: field.email,
-                    rules: {
-                        required: true,
-                        rule: BEFormValidator.DefaultRules.email
-                    },
-                    message: {
-                        required: {
-                            error: 'Field are required!'
-                        },
-                        rule: {
-                            error: 'E-mail is not valid. example: ex@info.com'
-                        }
-                    },
-                },
-                {
-                    element: field.message,
-                    rules: {
-                        required: true
-                    },
-                    message: {
-                        required: {
-                            error: 'Field are required!'
-                        }
-                    }
-                },
-                {
-                    element: field.check,
-                    rules: {
-                        required: true
-                    },
-                    message: {
-                        required: {
-                            error: 'Field are required!'
-                        }
-                    }
+                
+                    return true;
                 }
-            ]
-
-            const formConfig = {
-                element: form,
-                options: {
-                    default: true,
-                },
+        },
+    
+        message: {
+            required: {
+                error: 'Field are required!',
             }
-
-            const instance = new BEFormValidator.Create(formConfig, inputs)
-            instance.init();
         }
-    })
-})();
+    }
 ```
 
-----
-## Available default validators
-- **IsNumber**
-- **Phone**
-  - RU
-- **Email**
-- **Card Holder**
-  - Mastercard
-  - VisaMasterCarda
-  - VisaCard
-  - UnionPayCard
-  - JCBCard
-  - MaestroCard
-  - AmericanExpress
+<a name="available_props_form_config"></a>
+### Available props form config 
+| Name                             | Type                 | Default                        | Description                                                                                                                                |
+| -------------------------------- | -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `element`                    | `HTMLFormElement` or `string`| <b>REQUIRED</b>                   | Validated form class name or HTMLFormElement
+| `earlyInputInitiation`                    | `bool` | `false`                    | The flag allows you to activate validation on input and not only after pressing the submit button
+| `subscribeOnInput`                    | `bool` | `false`                    | Allows triggering valid\invalid events on input not only on submit <br /> <br /> basicly subscriptions work on submit, if this param is true, subcriptions like (valid, and invalid) is calling when you fill the input or etc
+| `options`                    | `object` | `{}`                    | Form options
+| `options.default`                    | `bool` | `false`                    | If you need a standard form submission, then set the default flag to true
+| `handlers`                    | `object` | `{}`                    | Object with handlers
+| `handlers.submit`                    | `function` | `undefined`                    | Submit handler
+| `subscriptions`                    | `object` | `{}`                    | Object with subscriptions
+| `subscriptions.valid`                    | `function` | `undefined`                    | Valid handler subscription
+| `subscriptions.invalid`                    | `function` | `undefined`                    | Invalid handler subscription
 
 ----
 ## LICENSE
