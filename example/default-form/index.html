@@ -73,6 +73,12 @@
 
 <form action="/" method="POST" class="postcard js-postcard">
     <div class="form-row">
+        <label for="name">Hidden input</label>
+        <input type="hidden" id="_hidden" value="">
+
+        <button onclick="window.fillField()">fill hidden value</button>
+    </div>
+    <div class="form-row">
         <label for="name">Your name</label><input type="text" class="name" id="name">
     </div>
     <div class="form-row">

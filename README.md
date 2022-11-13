@@ -112,7 +112,9 @@ For add a custom message you need, to set rule in rules object, and call message
                     this.messagePreventDefault(); // for block message render of message.rule object 
                 
                     if (!input.value.length) {
-                        validator.getElement(input).messages.changeStatus(false, 'Set custom text');
+                        const validationElement = validator.getElement(input);
+                        
+                        validationElement.messages.changeStatus(false, 'Set custom text');
                         return false;
                     }
                 

@@ -4,11 +4,17 @@
 
         if (form) {
             const field = {
-                name: form.querySelectorAll('.name'),
+                name: form.querySelectorAll('#name'),
                 email: form.querySelector('#email'),
                 message: form.querySelector('#message'),
                 check: form.querySelector('#check'),
                 file: form.querySelector('#file'),
+                _hidden: form.querySelector('#_hidden'),
+            }
+
+            window.fillField = function ()
+            {
+                field._hidden.value = "test";
             }
 
             const inputs = [
@@ -61,12 +67,25 @@
                     }
                 },
                 {
+                    element: field._hidden,
+                    rules: {
+                        required: true,
+                    },
+                    message: {
+                        required: {
+                            error: '-- Field are required!'
+                        }
+                    }
+                },
+                {
                     element: field.file,
                     rules: {
                         required: true,
                         rule: function (input, validator) {
                             this.messagePreventDefault();
-                            validator.getElement(input).messages.changeStatus(false, 'Test text for not valid')
+                            const chs = validator.getElement(input).messages.changeStatus
+
+                            chs(false, 'Test text for not valid')
                             return false
                         }
                     },
@@ -90,3 +109,5 @@
         }
     })
 })();
+
+

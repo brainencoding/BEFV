@@ -76,3 +76,9 @@ export abstract class AValidateForm {
 	earlyInputInitiation: boolean;
 	subscribeOnInput: boolean;
 }
+
+export type TValidateElementHandler = {
+	handler: Function,
+	useSubscribeOnInput?: boolean,
+	useValidate?: boolean,
+}

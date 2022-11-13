@@ -1,3 +1,5 @@
+import {TValidateElementHandler} from "./types";
+
 export const constants = Object.create({});
 
 constants.VERSION = '1.4.2';
@@ -28,7 +30,12 @@ constants.DEFAUTL_VALUES = {
 		handlers: {
 			input: () => {}
 		}
-	}
+	},
+	VALIDATOR_ELEMENT_HANDLER: <TValidateElementHandler>{
+		handler: undefined,
+		useValidate: true,
+		useSubscribeOnInput: true,
+	},
 }
 
 constants.DATASET = {

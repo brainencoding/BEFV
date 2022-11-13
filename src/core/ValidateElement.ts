@@ -1,4 +1,11 @@
-import {AValidateForm, AValidateInput, BEFormValidatorCreateImpl, TRule, ValidateElementImpl} from "../types";
+import {
+	AValidateForm,
+	AValidateInput,
+	BEFormValidatorCreateImpl,
+	TRule,
+	TValidateElementHandler,
+	ValidateElementImpl,
+} from "../types";
 import {Exception} from "./components/Exception";
 import {InputMessage} from "./components/InputMessage";
 import {constants} from "../constants";
@@ -24,7 +31,6 @@ export class ValidateElement implements ValidateElementImpl {
 				this.element = gettingElement;
 			} else {
 				this.element = undefined;
-				console.error(ValidateElement.Error('{ element } is undefined!'));
 			}
 		}
 	}
@@ -141,18 +147,33 @@ export class ValidateElement implements ValidateElementImpl {
 		}
 	}
 
-	private elementHandler(e: Event): void {
-		this.opt.handlers.input(e);
-		this.validate();
+	private createHandlerFunc = (options: TValidateElementHandler = constants.DEFAUTL_VALUES.VALIDATOR_ELEMENT_HANDLER) =>
+	{
+		return (event: Event) => {
+			if (options.handler) {
+				options.handler(event);
+			}
 
-		if (this.validator.form.subscribeOnInput) { 
-			 this.validator.emit('BEForm::checkInputValidation');
+			if (options.useValidate) {
+				this.validate();
+			}
+
+			if (options.useSubscribeOnInput && this.validator.form.subscribeOnInput) {
+				this.validator.emit('BEForm::checkInputValidation');
+			}
 		}
 	}
 
 	public init(): void {
 		if (!this.isInit && !this.opt.onlyOnSubmit) {
-			this.element.addEventListener('input', this.elementHandler.bind(this));
+			this.element.addEventListener(
+				"input",
+				this.createHandlerFunc({
+					handler: this.opt.handlers.input,
+					useValidate: true,
+					useSubscribeOnInput: true,
+				}),
+			);
 		}
 
 		this.isInit = true;
@@ -160,12 +181,14 @@ export class ValidateElement implements ValidateElementImpl {
 
 	public isCorrect(): boolean {
 		if (!this.element) {
-			console.error(ValidateElement.Error('{ element } is undefined!'));
+			console.error(ValidateElement.Error(`{ element => ${this.opt.element} } is nothing to found!`));
+
 			return false;
 		}
 
 		if (!this.opt.hasOwnProperty('rules')) {
 			console.error(ValidateElement.Error('{ rules } is not defined!'));
+
 			return false;
 		}
 
@@ -178,8 +201,6 @@ export class ValidateElement implements ValidateElementImpl {
 		}
 
 		if (this.isInit) {
-			this.element.removeEventListener('input', this.elementHandler.bind(this));
-
 			if (this.messages && this.messages.remove) {
 				this.messages.remove();
 				this.messages = undefined;
