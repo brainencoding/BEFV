@@ -1,6 +1,6 @@
 export const HTMLOVConstants = Object.create({});
 
-HTMLOVConstants['KEYWORDS'] = {
+HTMLOVConstants["KEYWORDS"] = {
     DEFINITION: "data-be-define",
     INITIALIZED: "data-be-initialized",
-}
+};

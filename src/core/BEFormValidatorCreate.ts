@@ -4,7 +4,8 @@ import {Exception} from "./components/Exception";
 import {ValidateElement} from "./ValidateElement";
 import {constants} from "../constants";
 
-export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
+export class BEFormValidatorCreate implements BEFormValidatorCreateImpl
+{
     private __initialInputs: AValidateInput[];
     private inputs: ValidateElement[] = [];
     public form: AValidateForm = constants.DEFAUTL_VALUES.VALIDATOR;
@@ -15,73 +16,83 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
     private __isInit: boolean = false;
     uid: string = (Date.now().toString() + Math.floor(Math.random() * Date.now())).toString();
 
-    constructor(form: AValidateForm, validateElements: AValidateInput[]) {
+    constructor(form: AValidateForm, validateElements: AValidateInput[])
+    {
         this.__initialInputs = validateElements;
         this.form = form;
 
-        if (typeof this.form.element === 'string') {
+        if (typeof this.form.element === "string") {
             const gettingElement = document.querySelector(this.form.element);
 
             if (gettingElement) {
                 this.form.element = gettingElement;
             } else {
                 this.form.element = undefined;
-                throw(ValidateElement.Error('{ element } is undefined!'));
+                throw(ValidateElement.Error("{ element } is undefined!"));
             }
         }
 
         // @ts-ignore
         this.form.element[constants.PACKAGE_NAME_IN_FORM] = this;
 
-        if (!this.form.hasOwnProperty('subscriptions')) {
+        if (!this.form.hasOwnProperty("subscriptions")) {
             this.form.subscriptions = {
-                valid: () => {
+                valid: () =>
+                {
                 },
-                invalid: () => {
-                }
-            }
+                invalid: () =>
+                {
+                },
+            };
         } else {
-            if (!('valid' in this.form.subscriptions) || !(this.form.subscriptions.valid instanceof Function)) {
-                this.form.subscriptions.valid = () => {
+            if (!("valid" in this.form.subscriptions) || !(this.form.subscriptions.valid instanceof Function)) {
+                this.form.subscriptions.valid = () =>
+                {
                 };
             }
 
-            if (!('invalid' in this.form.subscriptions) || !(this.form.subscriptions.invalid instanceof Function)) {
-                this.form.subscriptions.invalid = () => {
+            if (!("invalid" in this.form.subscriptions) || !(this.form.subscriptions.invalid instanceof Function)) {
+                this.form.subscriptions.invalid = () =>
+                {
                 };
             }
         }
 
-        function Event_isValidForm() {
-            const errorMessageInputClassName = constants.ERROR_MESSAGE_CLASS_NAME + 'input';
+        function Event_isValidForm()
+        {
+            const errorMessageInputClassName = constants.ERROR_MESSAGE_CLASS_NAME + "input";
 
             this.isFormValid = true;
-            this.form.element.setAttribute(constants.DATASET.VALID, '1');
+            this.form.element.setAttribute(constants.DATASET.VALID, "1");
 
-            this.form.element.querySelectorAll('be-error')?.forEach((beErrElement: HTMLElement) => beErrElement.remove());
+            this.form.element.querySelectorAll("be-error")?.forEach((beErrElement: HTMLElement) => beErrElement.remove());
             this.form.element.querySelectorAll(errorMessageInputClassName)
-                ?.forEach((beErrElement: HTMLElement) => {
+                ?.forEach((beErrElement: HTMLElement) =>
+                {
                     if (beErrElement.classList.contains(errorMessageInputClassName)) {
                         beErrElement.classList.remove(errorMessageInputClassName);
-                        beErrElement.classList.add(constants.SUCCESS_MESSAGE_CLASS_NAME + 'input');
+                        beErrElement.classList.add(constants.SUCCESS_MESSAGE_CLASS_NAME + "input");
                     }
                 });
 
             this.form.subscriptions.valid(this);
         }
 
-        this.addListener('BEForm::isValidForm', Event_isValidForm.bind(this));
+        this.addListener("BEForm::isValidForm", Event_isValidForm.bind(this));
 
-        function Event_isInvalidForm() {
+        function Event_isInvalidForm()
+        {
             this.isFormValid = false;
-            this.form.element.setAttribute(constants.DATASET.VALID, '0');
+            this.form.element.setAttribute(constants.DATASET.VALID, "0");
             this.form.subscriptions.invalid(this);
         }
 
-        this.addListener('BEForm::isInvalidForm', Event_isInvalidForm.bind(this));
+        this.addListener("BEForm::isInvalidForm", Event_isInvalidForm.bind(this));
 
-        function Event_checkInputValidation(beforeValidation: Function = () => {
-        }) {
+        function Event_checkInputValidation(beforeValidation: Function = () =>
+        {
+        })
+        {
             if (this.inputs.length) {
                 this.isFormValid = true;
 
@@ -100,26 +111,28 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
                 }
             }
 
-            this.emit('BEForm::' + (this.isFormValid ? 'isValidForm' : 'isInvalidForm'));
+            this.emit("BEForm::" + (this.isFormValid ? "isValidForm" : "isInvalidForm"));
 
             if (beforeValidation instanceof Function) {
                 beforeValidation();
             }
         }
 
-        this.addListener('BEForm::checkInputValidation', Event_checkInputValidation.bind(this));
+        this.addListener("BEForm::checkInputValidation", Event_checkInputValidation.bind(this));
     }
 
-    private formSubmitHandler(e: Event): void {
+    private formSubmitHandler(e: Event): void
+    {
         if (this.form.options?.default === false) {
             e.preventDefault();
         }
 
-        this.emit('BEForm::checkInputValidation', () => {
+        this.emit("BEForm::checkInputValidation", () =>
+        {
             if (this.isFormValid) {
                 if (
                     this.form.handlers &&
-                    this.form.handlers.hasOwnProperty('submit') &&
+                    this.form.handlers.hasOwnProperty("submit") &&
                     this.form.handlers.submit instanceof Function
                 ) {
                     this.form.handlers.submit(e);
@@ -131,7 +144,8 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
         });
     }
 
-    private inputsTreatment(needleInputs = this.__initialInputs, isCustom: boolean = false) {
+    private inputsTreatment(needleInputs = this.__initialInputs, isCustom: boolean = false)
+    {
         const inputsResult: AValidateInput[] = [];
 
         for (let i = 0; i < needleInputs.length; i++) {
@@ -146,7 +160,7 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
 
                 for (const element of elements) {
                     // @ts-ignore
-                    commonOptions['element'] = element;
+                    commonOptions["element"] = element;
                     inputsResult.push({...commonOptions});
                 }
             } else {
@@ -155,27 +169,31 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
         }
 
         if (isCustom) {
-        	return inputsResult;
-		}
+            return inputsResult;
+        }
 
         this.__initialInputs = inputsResult;
     }
 
-    emit(name: string, ...data: any) {
-        this.emitter.emit(this.uid + ' => ' + name, ...data)
+    emit(name: string, ...data: any)
+    {
+        this.emitter.emit(this.uid + " => " + name, ...data);
     }
 
-    addListener(name: string, ...callback: Function[]) {
-        this.emitter.addListener(this.uid + ' => ' + name, ...callback)
+    addListener(name: string, ...callback: Function[])
+    {
+        this.emitter.addListener(this.uid + " => " + name, ...callback);
     }
 
-    public getElement(input: HTMLInputElement | HTMLTextAreaElement): ValidateElement {
+    public getElement(input: HTMLInputElement | HTMLTextAreaElement): ValidateElement
+    {
         return this.inputs.find(_validateElement => _validateElement.element === input);
     }
 
     public addInput(
-        inputS: HTMLInputElement | HTMLTextAreaElement | HTMLInputElement[] | HTMLTextAreaElement[]
-    ): void {
+        inputS: HTMLInputElement | HTMLTextAreaElement | HTMLInputElement[] | HTMLTextAreaElement[],
+    ): void
+    {
         // @ts-ignore
         if (!Array.from(inputS).length) {
             // @ts-ignore
@@ -187,7 +205,8 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
         this.processInputValidation(result, true);
     }
 
-    public processInputValidation(needleInputs = this.__initialInputs, isCustom: boolean = false) {
+    public processInputValidation(needleInputs = this.__initialInputs, isCustom: boolean = false)
+    {
         for (let i = 0; i !== needleInputs.length; i++) {
             let newValidateElement: ValidateElement = new ValidateElement(needleInputs[i], this);
 
@@ -199,16 +218,17 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
             }
         }
 
-		if (this.form.earlyInputInitiation) {
-			for (const input of this.inputs) {
-				if (!input.isInit) {
-					input.init();
-				}
-			}
-		}
+        if (this.form.earlyInputInitiation) {
+            for (const input of this.inputs) {
+                if (!input.isInit) {
+                    input.init();
+                }
+            }
+        }
     }
 
-    public init(): void {
+    public init(): void
+    {
         if (this.__isInit) {
             if (this.inputs.length) {
                 for (const input of this.inputs) {
@@ -222,15 +242,15 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
         try {
             this.validatorOptionsChecker();
             this.inputsTreatment();
-            this.form.element.setAttribute(constants.DATASET.VALID, '0');
+            this.form.element.setAttribute(constants.DATASET.VALID, "0");
             this.processInputValidation();
 
             if (this.inputs.length) {
                 if (!this.__isInit) {
-                    this.form.element.addEventListener('submit', this.formSubmitHandler.bind(this), true);
+                    this.form.element.addEventListener("submit", this.formSubmitHandler.bind(this), true);
                 }
             } else {
-                console.error(Exception.throw('All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject'));
+                console.error(Exception.throw("All of inputs is incorrect for creating a ValidateElement! Please check your field in validateElementObject"));
                 return;
             }
 
@@ -240,25 +260,26 @@ export class BEFormValidatorCreate implements BEFormValidatorCreateImpl {
         }
     }
 
-    private validatorOptionsChecker(): void {
+    private validatorOptionsChecker(): void
+    {
         if (!this.form?.element) {
-            throw Exception.throw('{ form.element } is undefined');
+            throw Exception.throw("{ form.element } is undefined");
         }
 
         if (!(this.form.element instanceof HTMLFormElement)) {
-            throw Exception.throw('{ form.element } is not equal to type HTMLFormElement');
+            throw Exception.throw("{ form.element } is not equal to type HTMLFormElement");
         }
 
         if (!this.__initialInputs) {
-            throw Exception.throw('{ validateElements } is undefined!');
+            throw Exception.throw("{ validateElements } is undefined!");
         }
 
         if (!(this.__initialInputs instanceof Array)) {
-            throw Exception.throw('{ validateElements } is not equal to type Array!');
+            throw Exception.throw("{ validateElements } is not equal to type Array!");
         }
 
         if (!this.__initialInputs.length) {
-            throw Exception.throw('{ validateElements } is empty!');
+            throw Exception.throw("{ validateElements } is empty!");
         }
     }
 }

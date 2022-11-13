@@ -1,5 +1,4 @@
 import {
-	AValidateForm,
 	AValidateInput,
 	BEFormValidatorCreateImpl,
 	TRule,
@@ -10,209 +9,220 @@ import {Exception} from "./components/Exception";
 import {InputMessage} from "./components/InputMessage";
 import {constants} from "../constants";
 
-export class ValidateElement implements ValidateElementImpl {
-	public isValid: boolean = false;
-	public isInit: boolean = false;
+export class ValidateElement implements ValidateElementImpl
+{
+    public isValid: boolean = false;
+    public isInit: boolean = false;
 
-	public messages: InputMessage;
-	public element: HTMLInputElement | HTMLTextAreaElement;
+    public messages: InputMessage;
+    public element: HTMLInputElement | HTMLTextAreaElement;
 
-	constructor(public opt: AValidateInput, public validator: BEFormValidatorCreateImpl) {
-		const clone = {...constants.DEFAUTL_VALUES.VALIDATION_ELEMENT};
-		this.opt = Object.assign(clone, this.opt);
-		this.element = this.opt.element;
+    constructor(public opt: AValidateInput, public validator: BEFormValidatorCreateImpl)
+    {
+        const clone = {...constants.DEFAUTL_VALUES.VALIDATION_ELEMENT};
+        this.opt = Object.assign(clone, this.opt);
+        this.element = this.opt.element;
 
-		if (typeof this.element === 'string') {
-			// @ts-ignore
-			const gettingElement = document.querySelector(this.element);
+        if (typeof this.element === "string") {
+            // @ts-ignore
+            const gettingElement = document.querySelector(this.element);
 
-			if (gettingElement) {
-				// @ts-ignore
-				this.element = gettingElement;
-			} else {
-				this.element = undefined;
-			}
-		}
-	}
+            if (gettingElement) {
+                // @ts-ignore
+                this.element = gettingElement;
+            } else {
+                this.element = undefined;
+            }
+        }
+    }
 
-	public validate(): void {
-		this.isValid = false;
+    public validate(): void
+    {
+        this.isValid = false;
 
-		let res: boolean = false;
-		let stateChecked : boolean;
-		let ruleMessagePreventDefault = false;
+        let res: boolean = false;
+        let stateChecked: boolean;
+        let ruleMessagePreventDefault = false;
 
-		const value = this.element?.value;
-		const isCheckBox = this.element.type === 'checkbox';
-		const rules = this.opt.rules;
-		const message = this.opt.message;
-		const __conditionForSupportingOnlyBorder__ = (!message.required && !message.rule && message.border)
-		const InputMessageOpts = {
-			location: message.location || undefined,
-			noAdjacent: message.noAdjacent || undefined,
-			border: message.border || false,
-			noSpan: __conditionForSupportingOnlyBorder__,
-		}
+        const value = this.element?.value;
+        const isCheckBox = this.element.type === "checkbox";
+        const rules = this.opt.rules;
+        const message = this.opt.message;
+        const __conditionForSupportingOnlyBorder__ = (!message.required && !message.rule && message.border);
+        const InputMessageOpts = {
+            location: message.location || undefined,
+            noAdjacent: message.noAdjacent || undefined,
+            border: message.border || false,
+            noSpan: __conditionForSupportingOnlyBorder__,
+        };
 
-		if ("checked" in this.element) {
-			stateChecked = this.element.checked
-		}
+        if ("checked" in this.element) {
+            stateChecked = this.element.checked;
+        }
 
-		if (!this.messages) {
-			this.messages = new InputMessage(' ', this.element, InputMessageOpts);
-		}
+        if (!this.messages) {
+            this.messages = new InputMessage(" ", this.element, InputMessageOpts);
+        }
 
-		if (rules.hasOwnProperty('required') && rules.required) {
-			let valCond = isCheckBox ? !!stateChecked : !!value;
+        if (rules.hasOwnProperty("required") && rules.required) {
+            let valCond = isCheckBox ? !!stateChecked : !!value;
 
-			const _status = valCond ? 'success' : 'error';
+            const _status = valCond ? "success" : "error";
 
-			this.messages.changeStatus(valCond,
-				message && message.required ?
-					message?.required.hasOwnProperty(_status) && message.required[_status] :
-					__conditionForSupportingOnlyBorder__ ? '' : ''
-			);
+            this.messages.changeStatus(valCond,
+                message && message.required ?
+                    message?.required.hasOwnProperty(_status) && message.required[_status] :
+                    __conditionForSupportingOnlyBorder__ ? "" : "",
+            );
 
-			if (!valCond) {
-				this.opt.subscriptions.invalid();
-				return;
-			}
-		}
+            if (!valCond) {
+                this.opt.subscriptions.invalid();
+                return;
+            }
+        }
 
-		const additionalFunctionContextProps: Record<any, any> = {
-			messagePreventDefault: SetRuleMessagePreventDefault
-		}
+        const additionalFunctionContextProps: Record<any, any> = {
+            messagePreventDefault: SetRuleMessagePreventDefault,
+        };
 
-		if (rules.hasOwnProperty('rule') && rules.rule !== undefined) {
-			const rule: TRule = rules.rule;
+        if (rules.hasOwnProperty("rule") && rules.rule !== undefined) {
+            const rule: TRule = rules.rule;
 
-			const validateDefaultRule = (innerRule: TRule): boolean => {
-				if (innerRule === null) {
-					return true;
-				}
+            const validateDefaultRule = (innerRule: TRule): boolean =>
+            {
+                if (innerRule === null) {
+                    return true;
+                }
 
-				switch (innerRule.constructor) {
-					case RegExp: {
-						return (<RegExp>innerRule).test(value.toString());
-					}
+                switch (innerRule.constructor) {
+                    case RegExp: {
+                        return (<RegExp>innerRule).test(value.toString());
+                    }
 
-					case Function: {
-						return (<Function>innerRule).call({ ...this, ...additionalFunctionContextProps}, this.element, this.validator);
-					}
+                    case Function: {
+                        return (<Function>innerRule).call({...this, ...additionalFunctionContextProps}, this.element, this.validator);
+                    }
 
-					case Array: {
-						const typedRule = (<Array<RegExp | Function>>rule);
-						let localRes = false;
+                    case Array: {
+                        const typedRule = (<Array<RegExp | Function>>rule);
+                        let localRes = false;
 
-						if (typedRule.length) {
-							for (const typedRuleElement of typedRule) {
-								const cond: boolean = validateDefaultRule(typedRuleElement);
-								localRes = cond;
-								if (!cond) {
-									break;
-								}
-							}
-						} else {
-							console.error(ValidateElement.Error('rule of array [] is empty.', this.element.className));;
-						}
+                        if (typedRule.length) {
+                            for (const typedRuleElement of typedRule) {
+                                const cond: boolean = validateDefaultRule(typedRuleElement);
+                                localRes = cond;
+                                if (!cond) {
+                                    break;
+                                }
+                            }
+                        } else {
+                            console.error(ValidateElement.Error("rule of array [] is empty.", this.element.className));
 
-						return localRes
-					}
+                        }
 
-					default: {
-						throw ValidateElement.Error('rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>', this.element.className);
-					}
-				}
-			}
+                        return localRes;
+                    }
 
-			res = validateDefaultRule(rule);
+                    default: {
+                        throw ValidateElement.Error("rules: { rule: ... } for this input is not valid. Please use valid RegExp like => /(.*)/g without quotes and dbl quotes or use function \n Element =>", this.element.className);
+                    }
+                }
+            };
 
-			if (!ruleMessagePreventDefault) {
-				this.messages.changeStatus(res,
-					!res ? message?.rule?.error || '' : res ? message?.rule?.success || '' : ''
-				);
-			}
+            res = validateDefaultRule(rule);
 
-			if (!res) {
-				this.opt.subscriptions.invalid();
-				return;
-			}
-		}
+            if (!ruleMessagePreventDefault) {
+                this.messages.changeStatus(res,
+                    !res ? message?.rule?.error || "" : res ? message?.rule?.success || "" : "",
+                );
+            }
 
-		this.opt.subscriptions.valid(this);
-		this.isValid = true;
+            if (!res) {
+                this.opt.subscriptions.invalid();
+                return;
+            }
+        }
 
-		function SetRuleMessagePreventDefault(): void {
-			ruleMessagePreventDefault = true;
-		}
-	}
+        this.opt.subscriptions.valid(this);
+        this.isValid = true;
 
-	private createHandlerFunc = (options: TValidateElementHandler = constants.DEFAUTL_VALUES.VALIDATOR_ELEMENT_HANDLER) =>
-	{
-		return (event: Event) => {
-			if (options.handler) {
-				options.handler(event);
-			}
+        function SetRuleMessagePreventDefault(): void
+        {
+            ruleMessagePreventDefault = true;
+        }
+    }
 
-			if (options.useValidate) {
-				this.validate();
-			}
+    private createHandlerFunc = (options: TValidateElementHandler = constants.DEFAUTL_VALUES.VALIDATOR_ELEMENT_HANDLER) =>
+    {
+        return (event: Event) =>
+        {
+            if (options.handler) {
+                options.handler(event);
+            }
 
-			if (options.useSubscribeOnInput && this.validator.form.subscribeOnInput) {
-				this.validator.emit('BEForm::checkInputValidation');
-			}
-		}
-	}
+            if (options.useValidate) {
+                this.validate();
+            }
 
-	public init(): void {
-		if (!this.isInit && !this.opt.onlyOnSubmit) {
-			this.element.addEventListener(
-				"input",
-				this.createHandlerFunc({
-					handler: this.opt.handlers.input,
-					useValidate: true,
-					useSubscribeOnInput: true,
-				}),
-			);
-		}
+            if (options.useSubscribeOnInput && this.validator.form.subscribeOnInput) {
+                this.validator.emit("BEForm::checkInputValidation");
+            }
+        };
+    };
 
-		this.isInit = true;
-	}
+    public init(): void
+    {
+        if (!this.isInit && !this.opt.onlyOnSubmit) {
+            this.element.addEventListener(
+                "input",
+                this.createHandlerFunc({
+                    handler: this.opt.handlers.input,
+                    useValidate: true,
+                    useSubscribeOnInput: true,
+                }),
+            );
+        }
 
-	public isCorrect(): boolean {
-		if (!this.element) {
-			console.error(ValidateElement.Error(`{ element => ${this.opt.element} } is nothing to found!`));
+        this.isInit = true;
+    }
 
-			return false;
-		}
+    public isCorrect(): boolean
+    {
+        if (!this.element) {
+            console.error(ValidateElement.Error(`{ element => ${this.opt.element} } is nothing to found!`));
 
-		if (!this.opt.hasOwnProperty('rules')) {
-			console.error(ValidateElement.Error('{ rules } is not defined!'));
+            return false;
+        }
 
-			return false;
-		}
+        if (!this.opt.hasOwnProperty("rules")) {
+            console.error(ValidateElement.Error("{ rules } is not defined!"));
 
-		return true
-	}
+            return false;
+        }
 
-	public destroy(idx?: number): void {
-		if (idx) {
-			ValidateElement.Error('object are destroyed for element [index => ' + idx + '], element is undefined!');
-		}
+        return true;
+    }
 
-		if (this.isInit) {
-			if (this.messages && this.messages.remove) {
-				this.messages.remove();
-				this.messages = undefined;
-			}
-		}
-	}
+    public destroy(idx?: number): void
+    {
+        if (idx) {
+            ValidateElement.Error("object are destroyed for element [index => " + idx + "], element is undefined!");
+        }
 
-	static Error(..._s: string[]): Exception {
-		const str: string = _s.reduce((acc, prev) => acc + prev);
+        if (this.isInit) {
+            if (this.messages && this.messages.remove) {
+                this.messages.remove();
+                this.messages = undefined;
+            }
+        }
+    }
 
-		return Exception.throw(str, 'ValidateElement');
-	}
+    static Error(..._s: string[]): Exception
+    {
+        const str: string = _s.reduce((acc, prev) => acc + prev);
+
+        return Exception.throw(str, "ValidateElement");
+    }
 }
 
 
