@@ -1,24 +1,7 @@
-export const DefaultRules = Object.create({});
+import RulesMethods from "./Rules/Rules.Methods";
+import RulesRegexp from "./Rules/Rules.Regexp";
 
-DefaultRules.phone = {};
-
-DefaultRules.phone.ru = /^((\+7|7|8)+([0-9]){10})$((\+7|7|8)+([0-9]){10})/;
-
-/**
- *  General Email Regex (RFC 5322 Official Standard)
- * */
-DefaultRules.email = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i;
-
-DefaultRules.number = /^[\+\-]?\d*\.?\d+(?:[Ee][\+\-]?\d+)?$/;
-
-DefaultRules.creditCard = {
-    Mastercard: /^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/,
-    VisaMasterCard: /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/,
-    VisaCard: /^4[0-9]{12}(?:[0-9]{3})?$/,
-    UnionPayCard: /^(62[0-9]{14,17})$/,
-    JCBCard: /^(?:2131|1800|35\d{3})\d{11}$/,
-    MaestroCard: /^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$/,
-    AmericanExpress: /^[34|37][0-9]{14}$/,
-};
-
-
+export const DefaultRules = Object.create({
+    ...RulesMethods,
+    ...RulesRegexp
+});
